@@ -1,0 +1,12 @@
+# ---- Saida da ferramenta graphify (gerada, de projeto externo) ----
+graphify-out/
+
+# ---- Material de terceiros: nao redistribuir em repo publico ----
+# Livros didaticos (direitos autorais da editora)
+livros/
+# Slides e PDFs do professor
+aulas/
+
+# ---- Lixo de SO/editor ----
+Thumbs.db
+.DS_Store
