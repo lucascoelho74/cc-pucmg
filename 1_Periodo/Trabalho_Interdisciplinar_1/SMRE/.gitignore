@@ -1,0 +1,20 @@
+# ---- Arquivos com senhas/segredos (use os *.example.* como base) ----
+.env
+backend/config/app.config.json
+hardware/lucas_hardware/backend_pc/config.json
+hardware/lucas_hardware/projeto_esp32/secrets.h
+smre/config.hpp
+smre/config-old.h
+
+# ---- Binarios e artefatos de build ----
+hardware/lucas_hardware/backend_pc/backend_novo.exe
+backend/build/
+backend/storage/logs/
+
+# ---- Lixo de SO/editor ----
+Thumbs.db
+.DS_Store
+
+# ---- Config local de ferramentas ----
+AGENTS.md
+CLAUDE.md
