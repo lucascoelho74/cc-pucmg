@@ -1,0 +1,31 @@
+1175 - Troca em Vetor I
+https://judge.beecrowd.com/pt/problems/view/1175
+------------------------------------------------------------------------
+Ler um vetor de 20 posições e trocar o primeiro elemento com o último, o
+segundo com o penúltimo, e assim por diante até o 10º com o 11º — ou
+seja, inverter o vetor. Troque no próprio vetor com uma variável
+temporária e percorra só metade: se percorrer inteiro, você inverte duas
+vezes e volta ao início.
+
+ENTRADA
+  Vinte valores inteiros, positivos ou negativos, um por linha.
+
+SAIDA
+  O vetor modificado, no formato N[i] = Y, uma posição por linha.
+
+EXEMPLO DE ENTRADA
+    0
+    -5
+    …
+    63
+    230
+
+EXEMPLO DE SAIDA
+    N[0] = 230
+    N[1] = 63
+    …
+    N[18] = -5
+    N[19] = 0
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

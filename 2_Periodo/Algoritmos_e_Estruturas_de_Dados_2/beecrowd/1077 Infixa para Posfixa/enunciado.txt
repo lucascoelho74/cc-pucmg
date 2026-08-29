@@ -1,0 +1,30 @@
+1077 - Infixa para Posfixa
+https://judge.beecrowd.com/pt/problems/view/1077
+------------------------------------------------------------------------
+Converter expressões da notação infixa ((A+B)*C) para a posfixa (AB+C*).
+O algoritmo é o shunting-yard: operandos vão direto para a saída;
+operadores entram numa pilha e só saem quando aparece outro de
+precedência menor ou igual; parêntese aberto empilha e parêntese fechado
+desempilha até encontrar o par.
+
+ENTRADA
+  A primeira linha traz N (N < 1000), o número de casos. Cada caso é uma
+  expressão infixa válida com até 300 caracteres, contendo letras,
+  números, parênteses e os operadores binários + - * / ^.
+
+SAIDA
+  Uma linha por caso com a expressão convertida para a forma posfixa.
+
+EXEMPLO DE ENTRADA
+    3
+    A*2
+    (A*2+c-d)/2
+    (2*4/a^b)/(2*c)
+
+EXEMPLO DE SAIDA
+    A2*
+    A2*c+d-2/
+    24*ab^/2c*/
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

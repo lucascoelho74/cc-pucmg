@@ -1,0 +1,25 @@
+1173 - Preenchimento de Vetor I
+https://judge.beecrowd.com/pt/problems/view/1173
+------------------------------------------------------------------------
+Ler um valor inteiro e preencher um vetor de 10 posições: a primeira
+recebe o valor lido e cada posição seguinte recebe o dobro da anterior.
+
+ENTRADA
+  Um valor inteiro V (V ≤ 50).
+
+SAIDA
+  Dez linhas no formato N[i] = X, onde i é a posição e X o valor guardado
+  nela.
+
+EXEMPLO DE ENTRADA
+    1
+
+EXEMPLO DE SAIDA
+    N[0] = 1
+    N[1] = 2
+    N[2] = 4
+    …
+    N[9] = 512
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

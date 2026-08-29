@@ -1,0 +1,33 @@
+1257 - Array Hash
+https://judge.beecrowd.com/pt/problems/view/1257
+------------------------------------------------------------------------
+Calcular o hash de um conjunto de strings. Cada caractere vale (posição
+no alfabeto) + (índice da linha) + (índice dentro da linha), com todas
+as posições começando em zero — A vale 0, B vale 1, e assim por diante.
+O hash do caso é a soma dos valores de todos os caracteres. Com a
+entrada CBA / DDD: o C da linha 0, coluna 0, vale 2+0+0 = 2; o D da
+linha 1, coluna 2, vale 3+1+2 = 6; somando os seis dá 21.
+
+ENTRADA
+  A primeira linha traz N, a quantidade de casos. Cada caso começa com L
+  (1 ≤ L ≤ 100), o número de linhas que vêm a seguir, e depois as L linhas
+  — cada uma com até 50 letras maiúsculas de A a Z.
+
+SAIDA
+  Uma linha por caso, com o valor do hash.
+
+EXEMPLO DE ENTRADA
+    2
+    2
+    CBA
+    DDD
+    1
+    Z
+
+EXEMPLO DE SAIDA
+    21
+    25
+------------------------------------------------------------------------
+Problema do beecrowd, de autoria do TopCoder. Enunciado reescrito para
+estudo; o texto oficial, os casos de teste e a submissao estao no link
+acima.

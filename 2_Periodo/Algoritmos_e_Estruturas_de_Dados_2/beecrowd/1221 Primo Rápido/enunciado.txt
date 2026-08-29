@@ -1,0 +1,30 @@
+1221 - Primo Rápido
+https://judge.beecrowd.com/pt/problems/view/1221
+------------------------------------------------------------------------
+Mesma pergunta do 1165, mas com valores até 2³¹ e um segundo de limite.
+Repare que não dá para crivar até X — um vetor de 2³¹ posições não cabe
+na memória. O caminho é a divisão por tentativa até √X (que é no máximo
+~46341), pulando os pares depois do 2. Se quiser acelerar mais, crive só
+até 46341 uma vez e use essa lista de primos como divisores: menos
+testes por consulta, memória minúscula.
+
+ENTRADA
+  A primeira linha traz N (1 ≤ N ≤ 200), o número de casos. Seguem N
+  linhas, cada uma com um inteiro X (1 < X < 2³¹).
+
+SAIDA
+  Para cada valor, Prime ou Not Prime.
+
+EXEMPLO DE ENTRADA
+    3
+    123321
+    123
+    103
+
+EXEMPLO DE SAIDA
+    Not Prime
+    Not Prime
+    Prime
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

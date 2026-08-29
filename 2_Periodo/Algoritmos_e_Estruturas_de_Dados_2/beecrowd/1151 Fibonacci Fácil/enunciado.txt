@@ -1,0 +1,22 @@
+1151 - Fibonacci Fácil
+https://judge.beecrowd.com/pt/problems/view/1151
+------------------------------------------------------------------------
+Imprimir os N primeiros termos da sequência de Fibonacci, começando em 0
+e 1. Aqui não faz sentido criar vetor: dois acumuladores bastam, e o
+custo cai para O(1) de espaço.
+
+ENTRADA
+  Um valor inteiro N (0 < N < 46).
+
+SAIDA
+  Os N primeiros termos na mesma linha, separados por um espaço em branco.
+  Não pode haver espaço depois do último valor.
+
+EXEMPLO DE ENTRADA
+    5
+
+EXEMPLO DE SAIDA
+    0 1 1 2 3
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

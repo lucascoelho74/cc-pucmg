@@ -1,0 +1,22 @@
+1073 - Quadrado de Pares
+https://judge.beecrowd.com/pt/problems/view/1073
+------------------------------------------------------------------------
+Ler N e, para cada número par de 2 até N, imprimir o número e o seu
+quadrado.
+
+ENTRADA
+  Um inteiro N (N > 5).
+
+SAIDA
+  Uma linha por par, no formato i^2 = q.
+
+EXEMPLO DE ENTRADA
+    6
+
+EXEMPLO DE SAIDA
+    2^2 = 4
+    4^2 = 16
+    6^2 = 36
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

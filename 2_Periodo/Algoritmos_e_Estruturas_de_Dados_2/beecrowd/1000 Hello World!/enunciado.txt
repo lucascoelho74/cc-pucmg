@@ -1,0 +1,22 @@
+1000 - Hello World!
+https://judge.beecrowd.com/pt/problems/view/1000
+------------------------------------------------------------------------
+Imprimir a frase Hello World!. É o problema de calibragem do juiz: serve
+para confirmar que o esqueleto do programa, a linguagem escolhida e o
+processo de submissão estão funcionando antes de você gastar tempo com
+lógica.
+
+ENTRADA
+  Não há entrada.
+
+SAIDA
+  A frase Hello World!, seguida de quebra de linha.
+
+EXEMPLO DE ENTRADA
+    (sem entrada)
+
+EXEMPLO DE SAIDA
+    Hello World!
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

@@ -1,0 +1,26 @@
+1238 - Combinador
+https://judge.beecrowd.com/pt/problems/view/1238
+------------------------------------------------------------------------
+Intercalar os caracteres de duas strings: primeira letra da primeira,
+primeira da segunda, segunda da primeira, e assim por diante. Quando a
+mais curta acaba, o resto da mais longa vai inteiro para o fim.
+
+ENTRADA
+  A primeira linha traz N, a quantidade de casos. Cada caso é uma linha
+  com duas cadeias separadas por espaço, cada uma de 1 a 50 caracteres.
+
+SAIDA
+  Uma linha por caso com a cadeia combinada.
+
+EXEMPLO DE ENTRADA
+    2
+    Tpo oCder
+    aa bb
+
+EXEMPLO DE SAIDA
+    TopCoder
+    abab
+------------------------------------------------------------------------
+Problema do beecrowd, de autoria do TopCoder. Enunciado reescrito para
+estudo; o texto oficial, os casos de teste e a submissao estao no link
+acima.

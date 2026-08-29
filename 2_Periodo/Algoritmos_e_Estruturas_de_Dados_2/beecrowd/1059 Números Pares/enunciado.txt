@@ -1,0 +1,25 @@
+1059 - Números Pares
+https://judge.beecrowd.com/pt/problems/view/1059
+------------------------------------------------------------------------
+Imprimir todos os números pares de 1 a 100. Sem entrada — o objetivo é o
+laço, e o jeito bom é começar em 2 com passo 2 em vez de testar o resto
+de cada número.
+
+ENTRADA
+  Não há entrada.
+
+SAIDA
+  Os pares de 2 a 100, um por linha.
+
+EXEMPLO DE ENTRADA
+    (sem entrada)
+
+EXEMPLO DE SAIDA
+    2
+    4
+    6
+    …
+    100
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

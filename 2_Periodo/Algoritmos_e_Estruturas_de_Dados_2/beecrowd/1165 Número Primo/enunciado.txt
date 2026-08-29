@@ -1,0 +1,27 @@
+1165 - Número Primo
+https://judge.beecrowd.com/pt/problems/view/1165
+------------------------------------------------------------------------
+Dizer se cada valor lido é primo. Mesma otimização do 1164 — varrer só
+até √n — com uma vantagem a mais: aqui você pode parar no primeiro
+divisor encontrado.
+
+ENTRADA
+  A primeira linha traz N (1 ≤ N ≤ 100), o número de casos. Seguem N
+  linhas, cada uma com um inteiro X (1 < X ≤ 10⁷).
+
+SAIDA
+  Para cada valor, X eh primo ou X nao eh primo.
+
+EXEMPLO DE ENTRADA
+    3
+    8
+    51
+    7
+
+EXEMPLO DE SAIDA
+    8 nao eh primo
+    51 nao eh primo
+    7 eh primo
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

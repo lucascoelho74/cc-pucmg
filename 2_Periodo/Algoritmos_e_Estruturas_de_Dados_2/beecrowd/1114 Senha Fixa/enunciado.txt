@@ -1,0 +1,30 @@
+1114 - Senha Fixa
+https://judge.beecrowd.com/pt/problems/view/1114
+------------------------------------------------------------------------
+Repetir a leitura de uma senha até que a correta seja digitada — a senha
+válida é 2002. A cada tentativa errada o programa avisa; quando a certa
+aparece, ele libera o acesso e encerra. Cuidado com a estrutura do laço:
+a leitura precisa acontecer antes do teste e também dentro do laço,
+senão você lê uma vez só ou entra em laço infinito.
+
+ENTRADA
+  Vários inteiros, um por linha, até que apareça 2002.
+
+SAIDA
+  Para cada valor lido, uma mensagem: Senha Invalida se estiver errada,
+  Acesso Permitido quando for 2002.
+
+EXEMPLO DE ENTRADA
+    2200
+    1020
+    2022
+    2002
+
+EXEMPLO DE SAIDA
+    Senha Invalida
+    Senha Invalida
+    Senha Invalida
+    Acesso Permitido
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

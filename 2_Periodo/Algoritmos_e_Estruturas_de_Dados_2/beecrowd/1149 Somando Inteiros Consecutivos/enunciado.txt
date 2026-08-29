@@ -1,0 +1,24 @@
+1149 - Somando Inteiros Consecutivos
+https://judge.beecrowd.com/pt/problems/view/1149
+------------------------------------------------------------------------
+Ler A e N e somar A + i para cada i de 0 a N−1 — ou seja, N termos
+consecutivos a partir de A. A pegadinha está no N: enquanto ele vier
+negativo ou zero, você descarta e lê um novo N (só o N, o A continua o
+mesmo), até cair um N positivo. Tudo isso é um único caso, não uma
+leitura até EOF.
+
+ENTRADA
+  Uma linha com valores inteiros, positivos ou negativos: primeiro o A,
+  depois um ou mais candidatos a N.
+
+SAIDA
+  Um único valor inteiro com a soma.
+
+EXEMPLO DE ENTRADA
+    3 -1 0 -2 2
+
+EXEMPLO DE SAIDA
+    7
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

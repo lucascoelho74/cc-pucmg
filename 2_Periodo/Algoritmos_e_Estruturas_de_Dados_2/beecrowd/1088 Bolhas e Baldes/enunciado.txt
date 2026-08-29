@@ -1,0 +1,37 @@
+1088 - Bolhas e Baldes
+https://judge.beecrowd.com/pt/problems/view/1088
+------------------------------------------------------------------------
+Marcelo e Carlos jogam alternadamente sobre uma sequência, e Marcelo
+sempre começa. Uma jogada consiste em escolher dois elementos vizinhos
+fora de ordem e invertê-los. Quem não tiver jogada disponível perde — o
+que acontece quando a sequência fica ordenada. Dada a sequência inicial,
+dizer quem ganha. Como cada jogada desfaz exatamente uma inversão, o
+total de jogadas da partida é fixo: é o número de inversões da
+sequência, o mesmo que o bubble sort faria. Só a paridade importa — e
+contar isso em O(n²) estoura o tempo, então vai de merge sort adaptado,
+em O(n log n).
+
+ENTRADA
+  Vários casos, um por linha: o inteiro N (2 ≤ N ≤ 10⁵) seguido de uma
+  permutação de 1 a N. A entrada termina com uma linha contendo apenas
+  zero.
+
+SAIDA
+  Uma linha por caso com o nome do vencedor: Carlos ou Marcelo, sem
+  espaços.
+
+EXEMPLO DE ENTRADA
+    5 1 5 3 4 2
+    5 1 2 3 4 5
+    0
+
+EXEMPLO DE SAIDA
+    Marcelo
+    Carlos
+
+PEGADINHA
+  Marcelo começa e cada jogada é uma inversão desfeita. Logo, número ímpar
+  de inversões → vence Marcelo; par → vence Carlos.
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

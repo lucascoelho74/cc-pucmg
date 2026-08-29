@@ -1,0 +1,33 @@
+1116 - Dividindo X por Y
+https://judge.beecrowd.com/pt/problems/view/1116
+------------------------------------------------------------------------
+Para cada par de inteiros, imprimir o resultado da divisão. Se o divisor
+for zero, avisar em vez de dividir — em C a divisão inteira por zero
+costuma abortar o programa e em Java lança ArithmeticException; nas duas
+o jeito certo é testar antes.
+
+ENTRADA
+  A primeira linha traz N, a quantidade de pares. Seguem N linhas com dois
+  inteiros X e Y.
+
+SAIDA
+  Para cada caso, o resultado de X/Y com um dígito após o ponto decimal,
+  ou divisao impossivel quando Y for zero.
+
+EXEMPLO DE ENTRADA
+    3
+    3 -2
+    -8 0
+    0 8
+
+EXEMPLO DE SAIDA
+    -1.5
+    divisao impossivel
+    0.0
+
+PEGADINHA
+  Em C, C++ e Java a divisão entre dois inteiros dá inteiro. Use cast para
+  real antes de dividir.
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

@@ -1,0 +1,28 @@
+1042 - Sort Simples
+https://judge.beecrowd.com/pt/problems/view/1042
+------------------------------------------------------------------------
+Ler três inteiros, imprimi-los em ordem crescente e depois repeti-los na
+ordem em que foram lidos. Guardar a ordem original exige uma cópia — se
+você ordenar no lugar, ela se perde.
+
+ENTRADA
+  Três inteiros na mesma linha.
+
+SAIDA
+  Os três valores ordenados, um por linha; uma linha em branco; os três
+  valores na ordem original, um por linha.
+
+EXEMPLO DE ENTRADA
+    7 21 -14
+
+EXEMPLO DE SAIDA
+    -14
+    7
+    21
+
+    7
+    21
+    -14
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

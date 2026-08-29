@@ -1,0 +1,33 @@
+1161 - Soma de Fatoriais
+https://judge.beecrowd.com/pt/problems/view/1161
+------------------------------------------------------------------------
+Ler pares M e N indefinidamente e imprimir M! + N!. O enunciado avisa
+que o resultado passa de 15 dígitos, e passa mesmo — mas repare no
+limite: como M e N vão só até 20, o maior resultado possível é 20! + 20!
+= 4865804016353280000, com 19 dígitos. Isso ainda cabe num inteiro de 64
+bits com sinal, cujo teto é ≈ 9,22 × 10¹⁸. Ou seja: long em Java, long
+long em C, e pronto. O erro real aqui é usar int, que já estoura no 13º
+fatorial.
+
+ENTRADA
+  Vários casos até o fim do arquivo. Cada caso tem dois inteiros M e N,
+  com 0 ≤ M ≤ 20 e 0 ≤ N ≤ 20.
+
+SAIDA
+  Uma linha por caso com a soma dos dois fatoriais.
+
+EXEMPLO DE ENTRADA
+    4 4
+    0 0
+    0 2
+
+EXEMPLO DE SAIDA
+    48
+    2
+    3
+
+PEGADINHA
+  0! = 1. Por isso a entrada 0 0 resulta em 2, e não em zero.
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

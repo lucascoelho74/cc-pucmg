@@ -1,0 +1,33 @@
+/* 
+p {
+  color: blue;
+} 
+*/
+* {
+  font-family: "Libertinus Math", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.palavra1{
+  color: blue;
+}
+.palavra2{
+  color:brown;
+}
+
+.sidebar{
+  display: flex;
+  background-color: aqua;
+  height: 40px;
+  width: 100%;
+  justify-content: center;
+  border: 2px black solid;
+  border-radius: 18px;
+  gap: 30px;
+}
+.sidebar-texto{
+  text-decoration: none;
+  padding: 10px;
+  color: black;
+}

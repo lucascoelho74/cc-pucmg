@@ -1,0 +1,43 @@
+1273 - Justificador
+https://judge.beecrowd.com/pt/problems/view/1273
+------------------------------------------------------------------------
+Dada uma lista de palavras, reimprimi-las alinhadas à direita: cada
+palavra recebe espaços à esquerda até que todas terminem na mesma
+coluna. A largura não é dada — ela é o comprimento da maior palavra do
+caso, e é por isso que pelo menos uma linha começa direto na letra. Nada
+de espaço sobrando no fim da linha.
+
+ENTRADA
+  Vários casos. Cada caso começa com N (1 ≤ N ≤ 50), o número de palavras,
+  seguido de N palavras — uma por linha, de 1 a 50 letras maiúsculas. A
+  entrada termina com N = 0.
+
+SAIDA
+  Para cada caso, as palavras alinhadas à direita, na ordem de entrada,
+  com uma linha em branco separando os casos.
+
+EXEMPLO DE ENTRADA
+    3
+    BOB
+    TOMMY
+    JIM
+    4
+    LONGEST
+    A
+    LONGER
+    SHORT
+    0
+
+EXEMPLO DE SAIDA
+      BOB
+    TOMMY
+      JIM
+
+    LONGEST
+          A
+     LONGER
+      SHORT
+------------------------------------------------------------------------
+Problema do beecrowd, de autoria do TopCoder. Enunciado reescrito para
+estudo; o texto oficial, os casos de teste e a submissao estao no link
+acima.

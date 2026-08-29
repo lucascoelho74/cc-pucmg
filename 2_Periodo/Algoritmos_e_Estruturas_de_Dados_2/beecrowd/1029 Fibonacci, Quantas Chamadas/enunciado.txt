@@ -1,0 +1,29 @@
+1029 - Fibonacci, Quantas Chamadas?
+https://judge.beecrowd.com/pt/problems/view/1029
+------------------------------------------------------------------------
+Para cada valor X, informar o X-ésimo termo de Fibonacci e quantas
+chamadas recursivas a versão ingênua faria. Conta-se apenas as chamadas
+recursivas, sem a chamada inicial: para fib(n) isso dá 2·fib(n+1) − 2.
+Confira com o exemplo do próprio enunciado: fib(4) faz 8 chamadas, e
+2·fib(5)−2 = 2·5−2 = 8. Perceber a fórmula é o problema — contar de
+verdade, recursivamente, estoura o tempo.
+
+ENTRADA
+  A primeira linha traz N, o número de casos. Cada caso é um inteiro X (1
+  ≤ X ≤ 39).
+
+SAIDA
+  Uma linha por caso no formato fib(n) = num_calls calls = result, sempre
+  com um espaço antes e depois de cada sinal de igualdade.
+
+EXEMPLO DE ENTRADA
+    2
+    5
+    4
+
+EXEMPLO DE SAIDA
+    fib(5) = 14 calls = 5
+    fib(4) = 8 calls = 3
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

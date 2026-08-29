@@ -1,0 +1,25 @@
+1133 - Resto da Divisão
+https://judge.beecrowd.com/pt/problems/view/1133
+------------------------------------------------------------------------
+Dados X e Y, imprimir todos os valores entre eles cujo resto da divisão
+por 5 seja 2 ou 3.
+
+ENTRADA
+  Dois valores inteiros positivos quaisquer, não necessariamente em ordem
+  crescente.
+
+SAIDA
+  Os valores que satisfazem a condição, sempre em ordem crescente, um por
+  linha.
+
+EXEMPLO DE ENTRADA
+    10
+    18
+
+EXEMPLO DE SAIDA
+    12
+    13
+    17
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

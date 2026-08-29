@@ -1,0 +1,41 @@
+2929 - Menor da Pilha
+https://judge.beecrowd.com/pt/problems/view/2929
+------------------------------------------------------------------------
+Implementar uma pilha que, além de push e pop, responde qual é o menor
+elemento presente a qualquer momento. Percorrer para achar o mínimo é
+O(n) por consulta e estoura o tempo. A saída é usar duas pilhas: a
+segunda guarda, para cada altura, qual era o mínimo até ali — assim a
+consulta vira O(1) e o pop desempilha as duas juntas.
+
+ENTRADA
+  A primeira linha traz N (1 ≤ N ≤ 10⁶), o número de operações. Seguem N
+  linhas com PUSH V (1 ≤ V ≤ 10⁹), POP ou MIN.
+
+SAIDA
+  Uma linha para cada MIN, com o menor valor da pilha. Se a pilha estiver
+  vazia, tanto MIN quanto POP imprimem EMPTY.
+
+EXEMPLO DE ENTRADA
+    9
+    PUSH 100
+    PUSH 50
+    MIN
+    PUSH 45
+    MIN
+    POP
+    MIN
+    POP
+    MIN
+
+EXEMPLO DE SAIDA
+    50
+    45
+    50
+    100
+
+PEGADINHA
+  Com N até 10⁶, a leitura também pesa: em Java use BufferedReader, não
+  Scanner.
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

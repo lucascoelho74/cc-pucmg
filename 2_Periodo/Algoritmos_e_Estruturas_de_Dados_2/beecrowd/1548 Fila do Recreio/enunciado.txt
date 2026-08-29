@@ -1,0 +1,34 @@
+1548 - Fila do Recreio
+https://judge.beecrowd.com/pt/problems/view/1548
+------------------------------------------------------------------------
+A fila da cantina não é servida por ordem de chegada: quem tem nota
+maior passa na frente. Dada a ordem de chegada dos alunos com suas
+notas, reordene a fila por nota decrescente e informe quantos alunos não
+precisaram sair do lugar — ou seja, quantas posições têm o mesmo aluno
+antes e depois da reordenação.
+
+ENTRADA
+  A primeira linha traz N, o número de casos. Cada caso começa com M (1 ≤
+  M ≤ 1000), o número de alunos, seguido de M inteiros distintos Pi (1 ≤
+  Pi ≤ 1000) — a nota de cada aluno, na ordem de chegada.
+
+SAIDA
+  Uma linha por caso, com a quantidade de alunos que permaneceram na mesma
+  posição.
+
+EXEMPLO DE ENTRADA
+    3
+    3
+    100 80 90
+    4
+    100 120 30 50
+    4
+    100 90 30 25
+
+EXEMPLO DE SAIDA
+    1
+    0
+    4
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

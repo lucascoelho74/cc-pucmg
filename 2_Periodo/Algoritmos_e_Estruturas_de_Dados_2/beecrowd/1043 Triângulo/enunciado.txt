@@ -1,0 +1,23 @@
+1043 - Triângulo
+https://judge.beecrowd.com/pt/problems/view/1043
+------------------------------------------------------------------------
+Ler três valores reais A, B e C. Se eles formam um triângulo — cada lado
+estritamente menor que a soma dos outros dois — imprimir o perímetro.
+Caso contrário, tratar A e B como as bases de um trapézio e C como a
+altura, imprimindo a área (A + B) · C / 2. Repare no exemplo: com 6, 4 e
+2, o lado 6 não é menor que 4 + 2 = 6, então não é triângulo.
+
+ENTRADA
+  Três valores reais na mesma linha.
+
+SAIDA
+  Perimetro = X.X ou Area = X.X, com uma casa decimal.
+
+EXEMPLO DE ENTRADA
+    6.0 4.0 2.0
+
+EXEMPLO DE SAIDA
+    Area = 10.0
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

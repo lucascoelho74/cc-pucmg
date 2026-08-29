@@ -1,0 +1,33 @@
+1272 - Mensagem Oculta
+https://judge.beecrowd.com/pt/problems/view/1272
+------------------------------------------------------------------------
+A mensagem escondida num texto é formada pelas primeiras letras de cada
+palavra, na ordem em que aparecem. O texto tem só letras minúsculas e
+espaços — e as armadilhas estão todas nos espaços: pode haver mais de um
+entre palavras, o texto pode começar ou terminar com espaço, e pode ser
+só espaços (aí a mensagem é vazia). O ganho aqui é comparar as duas
+linguagens: em C você usa strtok, que destrói a string original ao
+trocar os separadores por terminadores; em Java o split() devolve um
+array novo e deixa o original intacto.
+
+ENTRADA
+  A primeira linha traz N, a quantidade de casos. Cada caso é uma linha
+  com 1 a 50 caracteres, formada por letras minúsculas e espaços.
+
+SAIDA
+  Para cada caso, a mensagem oculta — que pode ser uma linha vazia.
+
+EXEMPLO DE ENTRADA
+    3
+    compete online design event rating
+       u   r i o    n l  i    n e
+    round  elimination during  onsite   contest
+
+EXEMPLO DE SAIDA
+    coder
+    urionline
+    redoc
+------------------------------------------------------------------------
+Problema do beecrowd, de autoria do TopCoder. Enunciado reescrito para
+estudo; o texto oficial, os casos de teste e a submissao estao no link
+acima.

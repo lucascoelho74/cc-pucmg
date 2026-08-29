@@ -1,0 +1,25 @@
+1180 - Menor e Posição
+https://judge.beecrowd.com/pt/problems/view/1180
+------------------------------------------------------------------------
+Ler N valores e informar o menor deles e a posição em que ele aparece. O
+erro clássico é guardar só o valor mínimo e depois ter que varrer de
+novo para achar onde ele estava — atualize o índice junto.
+
+ENTRADA
+  A primeira linha traz N (1 < N < 1000), o tamanho do vetor. A segunda
+  traz os N inteiros separados por espaço — nunca há valores repetidos.
+
+SAIDA
+  Duas linhas: Menor valor: X e Posicao: Y, com a posição contada a partir
+  de zero.
+
+EXEMPLO DE ENTRADA
+    10
+    1 2 3 4 -5 6 7 8 9 10
+
+EXEMPLO DE SAIDA
+    Menor valor: -5
+    Posicao: 4
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

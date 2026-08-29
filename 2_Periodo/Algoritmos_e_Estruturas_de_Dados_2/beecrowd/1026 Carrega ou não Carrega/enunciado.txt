@@ -1,0 +1,25 @@
+1026 - Carrega ou não Carrega?
+https://judge.beecrowd.com/pt/problems/view/1026
+------------------------------------------------------------------------
+Um somador de 32 bits foi montado com defeito: o carregador de bit
+(carry) sempre devolve zero. Ou seja, cada posição soma os dois bits e
+descarta o vai-um — é por isso que 4 + 6 dá 2 nessa máquina. Somar bits
+sem propagar carry é exatamente o ou-exclusivo: o resultado é a ^ b.
+
+ENTRADA
+  Em cada linha, um par de inteiros de 32 bits sem sinal separados por um
+  espaço. A entrada termina em EOF.
+
+SAIDA
+  Uma linha por par de entrada, com o valor somado nesse modo.
+
+EXEMPLO DE ENTRADA
+    4 6
+    6 9
+
+EXEMPLO DE SAIDA
+    2
+    15
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

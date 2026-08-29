@@ -1,0 +1,37 @@
+1258 - Camisetas
+https://judge.beecrowd.com/pt/problems/view/1258
+------------------------------------------------------------------------
+Organizar os pedidos de camiseta de uma turma, ordenando por três
+critérios encadeados: cor do logo em ordem crescente, depois tamanho em
+ordem decrescente, e por fim nome do aluno em ordem crescente. É o seu
+primeiro problema em que vale criar uma classe própria com um Comparator
+encadeado, em vez de malabarismo com vetores paralelos.
+
+ENTRADA
+  Vários casos. Cada caso começa com N (1 ≤ N ≤ 60), a quantidade de
+  camisetas, seguido de 2N linhas: para cada camiseta, uma linha com o
+  nome do estudante e outra com a cor (branco ou vermelho), um espaço e o
+  tamanho (P, M ou G). Termina com N = 0.
+
+SAIDA
+  Uma linha por camiseta no formato cor tamanho nome, ordenadas pelos três
+  critérios. Linha em branco entre dois casos.
+
+EXEMPLO DE ENTRADA
+    2
+    Maria Jose
+    branco P
+    JuJu Mentina
+    branco M
+    0
+
+EXEMPLO DE SAIDA
+    branco P Maria Jose
+    branco M JuJu Mentina
+
+PEGADINHA
+  “Tamanho decrescente” é a ordem alfabética invertida do caractere, então
+  a saída sai P, M, G — e não G, M, P como o tamanho físico sugeriria.
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

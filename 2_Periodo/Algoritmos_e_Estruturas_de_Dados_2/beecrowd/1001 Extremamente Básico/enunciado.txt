@@ -1,0 +1,21 @@
+1001 - Extremamente Básico
+https://judge.beecrowd.com/pt/problems/view/1001
+------------------------------------------------------------------------
+Ler dois valores inteiros, somá-los e apresentar o resultado precedido
+da mensagem X = .
+
+ENTRADA
+  Dois inteiros A e B.
+
+SAIDA
+  A mensagem X = seguida do valor da soma, com quebra de linha ao final.
+
+EXEMPLO DE ENTRADA
+    10
+    9
+
+EXEMPLO DE SAIDA
+    X = 19
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

@@ -1,0 +1,28 @@
+1164 - Número Perfeito
+https://judge.beecrowd.com/pt/problems/view/1164
+------------------------------------------------------------------------
+Um número é perfeito quando é igual à soma dos seus divisores próprios
+(6 = 1+2+3). O laço óbvio testa todos os divisores até N, o que é O(n);
+testando só até √n e somando os divisores aos pares (se d divide, n/d
+também) você cai para O(√n).
+
+ENTRADA
+  A primeira linha traz N (1 ≤ N ≤ 20), o número de casos. Seguem N
+  linhas, cada uma com um inteiro X (1 ≤ X ≤ 10⁸).
+
+SAIDA
+  Para cada valor, X eh perfeito ou X nao eh perfeito.
+
+EXEMPLO DE ENTRADA
+    3
+    6
+    5
+    28
+
+EXEMPLO DE SAIDA
+    6 eh perfeito
+    5 nao eh perfeito
+    28 eh perfeito
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

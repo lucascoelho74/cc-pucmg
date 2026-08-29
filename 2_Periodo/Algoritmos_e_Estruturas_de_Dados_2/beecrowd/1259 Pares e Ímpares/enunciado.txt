@@ -1,0 +1,43 @@
+1259 - Pares e Ímpares
+https://judge.beecrowd.com/pt/problems/view/1259
+------------------------------------------------------------------------
+Ler N valores e imprimir primeiro os pares em ordem crescente e depois
+os ímpares em ordem decrescente. Dá para resolver separando em dois
+vetores e ordenando cada um, ou com um único comparador que codifica os
+dois critérios — vale tentar as duas versões e comparar.
+
+ENTRADA
+  A primeira linha traz N (1 < N ≤ 10⁵), a quantidade de valores. Seguem N
+  linhas, cada uma com um inteiro não negativo.
+
+SAIDA
+  Os N valores reordenados, um por linha: primeiro os pares em ordem
+  crescente, depois os ímpares em ordem decrescente.
+
+EXEMPLO DE ENTRADA
+    10
+    4
+    32
+    34
+    543
+    3456
+    654
+    567
+    87
+    6789
+    98
+
+EXEMPLO DE SAIDA
+    4
+    32
+    34
+    98
+    654
+    3456
+    6789
+    567
+    543
+    87
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

@@ -1,0 +1,22 @@
+1071 - Soma de Ímpares Consecutivos I
+https://judge.beecrowd.com/pt/problems/view/1071
+------------------------------------------------------------------------
+Dados dois valores, somar todos os números ímpares estritamente entre
+eles — os próprios limites ficam de fora. Os valores podem vir em
+qualquer ordem, então normalize antes.
+
+ENTRADA
+  Dois valores inteiros X e Y, em qualquer ordem.
+
+SAIDA
+  Um único inteiro: a soma dos ímpares que estão entre os dois valores.
+
+EXEMPLO DE ENTRADA
+    6
+    -5
+
+EXEMPLO DE SAIDA
+    5
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

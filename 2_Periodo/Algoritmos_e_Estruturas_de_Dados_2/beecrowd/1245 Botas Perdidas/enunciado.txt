@@ -1,0 +1,42 @@
+1245 - Botas Perdidas
+https://judge.beecrowd.com/pt/problems/view/1245
+------------------------------------------------------------------------
+Um depósito com botas soltas, cada uma de um tamanho e de um pé (direito
+ou esquerdo). Contar quantos pares completos dá para formar. Como os
+tamanhos vivem num intervalo pequeno e conhecido, um vetor de contadores
+indexado pelo tamanho resolve — HashMap aqui é overhead puro.
+
+ENTRADA
+  Vários casos até o fim do arquivo. Cada caso começa com N (2 ≤ N ≤ 10⁴,
+  sempre par), a quantidade de botas avulsas, seguido de N linhas com o
+  tamanho M (30 ≤ M ≤ 60) e a letra L, sendo D para o pé direito e E para
+  o esquerdo.
+
+SAIDA
+  Uma linha por caso com o total de pares corretos que podem ser formados.
+
+EXEMPLO DE ENTRADA
+    4
+    40 D
+    41 E
+    41 D
+    40 E
+    6
+    38 E
+    38 E
+    40 D
+    38 D
+    40 D
+    37 E
+
+EXEMPLO DE SAIDA
+    2
+    1
+
+PEGADINHA
+  Para cada tamanho, o número de pares é o menor entre a contagem de
+  direitas e a de esquerdas. Como os tamanhos vão só de 30 a 60, dois
+  vetores de 61 posições resolvem.
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

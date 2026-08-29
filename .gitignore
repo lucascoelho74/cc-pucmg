@@ -10,3 +10,12 @@ aulas/
 # ---- Lixo de SO/editor ----
 Thumbs.db
 .DS_Store
+
+# ---- Iniciacao Cientifica ----
+# Espelho local da documentacao Helio Rev 1.2 (~900 MB de PDFs, ZIPs e
+# tarballs do fabricante) + fotos de bancada. Nada disso vai para o git.
+Iniciacao_Cientifica/
+
+# ---- Notas geradas (AEDs II) ----
+2_Periodo/Algoritmos_e_Estruturas_de_Dados_2/AEDS2-GRAFO.md
+2_Periodo/Algoritmos_e_Estruturas_de_Dados_2/AEDS2-MATERIAL.md

@@ -1,0 +1,29 @@
+1181 - Linha na Matriz
+https://judge.beecrowd.com/pt/problems/view/1181
+------------------------------------------------------------------------
+Uma matriz 12×12 de reais. Dada uma linha e uma operação, calcular a
+soma ou a média dos valores daquela linha.
+
+ENTRADA
+  A primeira linha traz L (0 ≤ L ≤ 11), a linha a considerar. A segunda
+  traz um caractere maiúsculo: S para soma, M para média. Seguem os 144
+  valores de ponto flutuante da matriz, preenchida linha por linha, da
+  linha 0 à 11, da esquerda para a direita.
+
+SAIDA
+  O resultado com uma casa decimal.
+
+EXEMPLO DE ENTRADA
+    2
+    S
+    0.0
+    -3.5
+    2.5
+    4.1
+    … (144 valores)
+
+EXEMPLO DE SAIDA
+    12.6
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

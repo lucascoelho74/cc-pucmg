@@ -1,0 +1,31 @@
+1131 - Grenais
+https://judge.beecrowd.com/pt/problems/view/1131
+------------------------------------------------------------------------
+Ler placares de partidas entre Inter e Grêmio, uma de cada vez,
+perguntando após cada uma se o usuário quer continuar. No fim, informar
+quantos jogos houve, quantos cada time venceu, quantos empates e qual
+time venceu mais.
+
+ENTRADA
+  Para cada partida: dois inteiros com os gols do Inter e do Grêmio,
+  depois um inteiro (1 = novo jogo, 2 = parar).
+
+SAIDA
+  N grenais, Inter:X, Gremio:Y, Empates:Z e uma linha com Inter venceu
+  mais, Gremio venceu mais ou Nao houve vencedor.
+
+EXEMPLO DE ENTRADA
+    2 1
+    1
+    0 0
+    2
+
+EXEMPLO DE SAIDA
+    2 grenais
+    Inter:1
+    Gremio:0
+    Empates:1
+    Inter venceu mais
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

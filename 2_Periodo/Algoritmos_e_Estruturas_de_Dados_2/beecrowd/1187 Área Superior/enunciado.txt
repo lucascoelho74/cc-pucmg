@@ -1,0 +1,29 @@
+1187 - Área Superior
+https://judge.beecrowd.com/pt/problems/view/1187
+------------------------------------------------------------------------
+Mesma matriz 12×12, agora com a área superior: o triângulo que sobra
+acima das duas diagonais, sem incluir nenhuma delas. São duas condições
+simultâneas — i < j e i + j < 11. Desenhe a matriz no papel e marque as
+células antes de escrever o if.
+
+ENTRADA
+  A primeira linha traz um caractere maiúsculo: S para soma, M para média.
+  Seguem os 144 valores de ponto flutuante de dupla precisão da matriz.
+
+SAIDA
+  O resultado com uma casa decimal.
+
+EXEMPLO DE ENTRADA
+    S
+    1.0
+    330.0
+    -3.5
+    2.5
+    4.1
+    … (144 valores)
+
+EXEMPLO DE SAIDA
+    112.4
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

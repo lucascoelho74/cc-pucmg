@@ -1,0 +1,22 @@
+1010 - Cálculo Simples
+https://judge.beecrowd.com/pt/problems/view/1010
+------------------------------------------------------------------------
+Duas peças, cada uma com código, quantidade comprada e preço unitário.
+Calcular o valor total a pagar.
+
+ENTRADA
+  Duas linhas; cada uma com o código da peça (inteiro), a quantidade
+  (inteiro) e o preço unitário (real).
+
+SAIDA
+  A mensagem VALOR A PAGAR: R$ seguida do total com duas casas decimais.
+
+EXEMPLO DE ENTRADA
+    12 1 5.30
+    16 2 5.10
+
+EXEMPLO DE SAIDA
+    VALOR A PAGAR: R$ 15.50
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

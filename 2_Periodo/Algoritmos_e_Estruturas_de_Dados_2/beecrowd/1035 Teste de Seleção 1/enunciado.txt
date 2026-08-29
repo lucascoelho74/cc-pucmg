@@ -1,0 +1,22 @@
+1035 - Teste de Seleção 1
+https://judge.beecrowd.com/pt/problems/view/1035
+------------------------------------------------------------------------
+Ler quatro inteiros A, B, C e D e verificar, de uma vez só, se todas
+estas condições valem: B > C, D > A, C + D > A + B, C e D são positivos
+e A é par.
+
+ENTRADA
+  Quatro números inteiros A, B, C e D na mesma linha.
+
+SAIDA
+  Valores aceitos se todas as condições forem satisfeitas, senão Valores
+  nao aceitos.
+
+EXEMPLO DE ENTRADA
+    2 3 2 6
+
+EXEMPLO DE SAIDA
+    Valores aceitos
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

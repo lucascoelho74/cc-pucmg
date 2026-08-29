@@ -1,0 +1,30 @@
+1110 - Jogando Cartas Fora
+https://judge.beecrowd.com/pt/problems/view/1110
+------------------------------------------------------------------------
+Um baralho tem N cartas numeradas de 1 a N, com a carta 1 no topo.
+Repita até sobrar uma única carta: descarte a carta do topo e mova a
+nova carta do topo para o fim do baralho. Informe as cartas descartadas
+na ordem em que saíram e qual sobrou.
+
+ENTRADA
+  Vários casos, um inteiro n (n ≤ 50) por linha. A última linha contém 0 e
+  não deve ser processada.
+
+SAIDA
+  Duas linhas por caso: Discarded cards: com os descartados separados por
+  vírgula e espaço, e Remaining card: X. Nenhuma linha tem espaço sobrando
+  no início ou no fim.
+
+EXEMPLO DE ENTRADA
+    7
+    6
+    0
+
+EXEMPLO DE SAIDA
+    Discarded cards: 1, 3, 5, 7, 4, 2
+    Remaining card: 6
+    Discarded cards: 1, 3, 5, 2, 6
+    Remaining card: 4
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

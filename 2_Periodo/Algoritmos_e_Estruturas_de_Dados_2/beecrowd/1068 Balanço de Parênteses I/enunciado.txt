@@ -1,0 +1,31 @@
+1068 - Balanço de Parênteses I
+https://judge.beecrowd.com/pt/problems/view/1068
+------------------------------------------------------------------------
+Dada uma expressão, dizer se a quantidade de parênteses está correta,
+ignorando o resto da expressão. São dois erros possíveis: um parêntese
+que fecha sem ter um que abra antes dele, e parênteses abertos sobrando
+no fim da linha.
+
+ENTRADA
+  Até 10000 expressões, uma por linha, com até 1000 caracteres cada, até o
+  fim da entrada.
+
+SAIDA
+  Uma linha por expressão, com correct ou incorrect.
+
+EXEMPLO DE ENTRADA
+    a+(b*c)-2-a
+    (a+b*(2-c)-2+a)*2
+    (a*b-(2+c)
+    2*(3-a))
+    )3+b*(2-c)(
+
+EXEMPLO DE SAIDA
+    correct
+    correct
+    incorrect
+    incorrect
+    incorrect
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

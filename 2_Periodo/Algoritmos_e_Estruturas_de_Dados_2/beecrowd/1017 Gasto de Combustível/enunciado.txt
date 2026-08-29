@@ -1,0 +1,23 @@
+1017 - Gasto de Combustível
+https://judge.beecrowd.com/pt/problems/view/1017
+------------------------------------------------------------------------
+Um carro percorre uma viagem a velocidade média constante e consome 1
+litro a cada 12 km. Dados o tempo e a velocidade, descobrir quantos
+litros foram gastos.
+
+ENTRADA
+  Um inteiro com o tempo de viagem em horas e um inteiro com a velocidade
+  média em km/h.
+
+SAIDA
+  A quantidade de litros gastos, com três casas decimais.
+
+EXEMPLO DE ENTRADA
+    10
+    85
+
+EXEMPLO DE SAIDA
+    70.833
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

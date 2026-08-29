@@ -1,0 +1,35 @@
+1162 - Organizador de Vagões
+https://judge.beecrowd.com/pt/problems/view/1162
+------------------------------------------------------------------------
+Uma ponte giratória perto da estação só comporta dois vagões por vez, e
+girá-la troca esses dois de lugar. Ou seja, a única operação disponível
+é trocar dois vagões adjacentes. Dada a ordem atual do trem, quantas
+trocas são necessárias para deixá-lo ordenado de 1 a L? Esse número é
+exatamente a quantidade de inversões da permutação — o mesmo conceito do
+1088, mas aqui L ≤ 50, então o O(n²) ingênuo passa tranquilo.
+
+ENTRADA
+  A primeira linha traz N, o número de casos. Cada caso tem duas linhas: L
+  (0 ≤ L ≤ 50), o tamanho do trem, e depois uma permutação de 1 até L com
+  a ordem atual dos vagões.
+
+SAIDA
+  Para cada caso, a frase Optimal train swapping takes S swaps., com S
+  sendo o número de trocas.
+
+EXEMPLO DE ENTRADA
+    3
+    3
+    1 3 2
+    4
+    4 3 2 1
+    2
+    2 1
+
+EXEMPLO DE SAIDA
+    Optimal train swapping takes 1 swaps.
+    Optimal train swapping takes 6 swaps.
+    Optimal train swapping takes 1 swaps.
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

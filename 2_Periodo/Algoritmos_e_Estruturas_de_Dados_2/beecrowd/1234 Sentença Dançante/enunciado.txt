@@ -1,0 +1,29 @@
+1234 - Sentença Dançante
+https://judge.beecrowd.com/pt/problems/view/1234
+------------------------------------------------------------------------
+Uma sentença é dançante quando a primeira letra é maiúscula e cada letra
+seguinte tem o caso oposto ao da letra anterior. O detalhe que decide o
+problema: os espaços são ignorados nessa alternância — ela atravessa a
+frase inteira e não reinicia a cada palavra. Os espaços originais,
+inclusive repetidos e nas pontas, são preservados como estão.
+
+ENTRADA
+  Vários casos, um por linha, até o fim da entrada. Cada linha tem de 1 a
+  50 caracteres entre A-Z, a-z e espaço, com pelo menos uma letra.
+
+SAIDA
+  Cada linha convertida para sentença dançante.
+
+EXEMPLO DE ENTRADA
+    This is a dancing sentence
+    aaaaaaaaaa
+    z
+
+EXEMPLO DE SAIDA
+    ThIs Is A dAnCiNg SeNtEnCe
+    AaAaAaAaAa
+    Z
+------------------------------------------------------------------------
+Problema do beecrowd, de autoria do TopCoder. Enunciado reescrito para
+estudo; o texto oficial, os casos de teste e a submissao estao no link
+acima.

@@ -1,0 +1,27 @@
+1064 - Positivos e Média
+https://judge.beecrowd.com/pt/problems/view/1064
+------------------------------------------------------------------------
+Ler seis valores reais, contar quantos são positivos (maiores que zero)
+e calcular a média apenas desses positivos.
+
+ENTRADA
+  Seis valores reais, um por linha.
+
+SAIDA
+  Uma linha com X valores positivos e outra com a média deles, com uma
+  casa decimal.
+
+EXEMPLO DE ENTRADA
+    -7.0
+    8.5
+    6.0
+    -3.5
+    11.0
+    0.0
+
+EXEMPLO DE SAIDA
+    3 valores positivos
+    8.5
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

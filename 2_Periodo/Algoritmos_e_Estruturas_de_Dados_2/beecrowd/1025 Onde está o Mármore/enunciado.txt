@@ -1,0 +1,45 @@
+1025 - Onde está o Mármore?
+https://judge.beecrowd.com/pt/problems/view/1025
+------------------------------------------------------------------------
+Você tem uma coleção de mármores numerados e recebe várias consultas.
+Para cada consulta, informe se aquele número está na coleção e, se
+estiver, em que posição ele fica depois que a coleção é ordenada em
+ordem crescente (contando a partir de 1). Se o número aparecer repetido,
+vale a menor posição.
+
+ENTRADA
+  Menos de 65 casos. Cada caso começa com N (mármores) e Q (consultas),
+  seguidos de N linhas com os números dos mármores — em ordem qualquer,
+  nenhum maior que 10000 nem negativo — e Q linhas com as consultas.
+  Termina com N = Q = 0.
+
+SAIDA
+  Para cada caso, CASE# k: e depois, por consulta, x found at y (posições
+  de 1 a N) ou x not found.
+
+EXEMPLO DE ENTRADA
+    4 1
+    2
+    3
+    5
+    1
+    5
+    5 2
+    1
+    3
+    3
+    3
+    1
+    2
+    3
+    0 0
+
+EXEMPLO DE SAIDA
+    CASE# 1:
+    5 found at 4
+    CASE# 2:
+    2 not found
+    3 found at 3
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

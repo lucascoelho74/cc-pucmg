@@ -1,0 +1,22 @@
+1132 - Múltiplos de 13
+https://judge.beecrowd.com/pt/problems/view/1132
+------------------------------------------------------------------------
+Dados dois valores, somar todos os inteiros do intervalo entre eles
+(incluindo os extremos) que não são múltiplos de 13. Os valores podem
+vir em qualquer ordem.
+
+ENTRADA
+  Dois valores inteiros quaisquer, não necessariamente em ordem crescente.
+
+SAIDA
+  A soma de todos os valores do intervalo que não são divisíveis por 13.
+
+EXEMPLO DE ENTRADA
+    100
+    200
+
+EXEMPLO DE SAIDA
+    13954
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

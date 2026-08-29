@@ -1,0 +1,32 @@
+1607 - Avance as Letras
+https://judge.beecrowd.com/pt/problems/view/1607
+------------------------------------------------------------------------
+Dadas duas strings A e B do mesmo tamanho, qual o número mínimo de
+operações para transformar A em B? Uma operação avança uma letra de A
+para a próxima do alfabeto, e depois do z vem o a de novo. Como só dá
+para avançar, cada posição é independente e o custo dela é (b − a + 26)
+% 26: a resposta é a soma disso ao longo da string. Repare que a volta
+pelo z pode ser o caminho curto — de z para a é uma operação só, não 25.
+
+ENTRADA
+  A primeira linha traz T (T ≤ 100), o número de casos. Cada caso é uma
+  linha com as strings A e B separadas por espaço, de mesmo tamanho e só
+  com letras minúsculas. O tamanho vai até 100 na maioria dos casos e até
+  10⁴ nos demais.
+
+SAIDA
+  Uma linha por caso com o número mínimo de operações.
+
+EXEMPLO DE ENTRADA
+    3
+    ab bd
+    abc abc
+    abcdefghiz aaaaaaaaaa
+
+EXEMPLO DE SAIDA
+    3
+    0
+    173
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

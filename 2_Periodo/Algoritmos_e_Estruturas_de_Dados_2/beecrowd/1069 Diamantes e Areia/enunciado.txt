@@ -1,0 +1,27 @@
+1069 - Diamantes e Areia
+https://judge.beecrowd.com/pt/problems/view/1069
+------------------------------------------------------------------------
+Um trecho de mina contém diamantes <> e areia .. A cada diamante
+extraído a areia entre as partes some, e isso pode formar novos
+diamantes com o que sobrou. Contar quantos diamantes dá para tirar no
+total. Na prática é a pilha do 1068 com contagem diferente: empilhe cada
+<, e a cada > que encontre um < esperando, desempilhe e some um.
+
+ENTRADA
+  A primeira linha traz N, a quantidade de casos. Cada caso é uma linha
+  com até 1000 caracteres entre <, > e .
+
+SAIDA
+  Um inteiro por caso: a quantidade de diamantes extraídos.
+
+EXEMPLO DE ENTRADA
+    2
+    >
+
+
+EXEMPLO DE SAIDA
+    3
+    1
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

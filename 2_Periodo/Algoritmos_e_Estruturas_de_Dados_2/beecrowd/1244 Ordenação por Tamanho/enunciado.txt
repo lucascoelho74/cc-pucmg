@@ -1,0 +1,35 @@
+1244 - Ordenação por Tamanho
+https://judge.beecrowd.com/pt/problems/view/1244
+------------------------------------------------------------------------
+Ordenar um conjunto de strings pelo comprimento, da maior para a menor.
+Quando duas têm o mesmo tamanho, elas devem manter a ordem original — e
+isso é exatamente a definição de ordenação estável. Em Java o
+Arrays.sort sobre objetos usa TimSort, que já é estável, então o
+desempate sai de graça; em C o qsort não garante isso, e você precisa
+carregar o índice original no comparador.
+
+ENTRADA
+  A primeira linha traz N, o número de casos. Cada caso é uma linha com 1
+  a 50 strings, cada uma de 1 a 50 caracteres entre letras, números e
+  espaços.
+
+SAIDA
+  Uma linha por caso com as strings reordenadas, separadas por um espaço
+  em branco.
+
+EXEMPLO DE ENTRADA
+    4
+    Top Coder comp Wedn at midnight
+    one three five
+    I love Cpp
+    sj a sa df r e w f d s a v c x z sd fd
+
+EXEMPLO DE SAIDA
+    midnight Coder comp Wedn Top at
+    three five one
+    love Cpp I
+    sj sa df fd a r e w f d s a v c x z
+------------------------------------------------------------------------
+Problema do beecrowd, de autoria do TopCoder. Enunciado reescrito para
+estudo; o texto oficial, os casos de teste e a submissao estao no link
+acima.

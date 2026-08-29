@@ -1,0 +1,36 @@
+1281 - Ida à Feira
+https://judge.beecrowd.com/pt/problems/view/1281
+------------------------------------------------------------------------
+A feira tem uma tabela de produtos com seus preços, e dona Parcinova
+chega com uma lista de compras. Calcular quanto ela vai gastar. Não tem
+escolha nem otimização: é consulta por nome — para cada item da lista,
+achar o preço e multiplicar pela quantidade. O nome é a chave, e é aí
+que um HashMap<String, Double> resolve em O(1) o que em C custaria uma
+tabela hash na mão ou uma busca linear.
+
+ENTRADA
+  A primeira linha traz N, o número de casos. Cada caso começa com M, a
+  quantidade de produtos à venda, seguido de M linhas com o nome e o preço
+  unitário. Depois vem P (1 ≤ P ≤ M), a quantidade de produtos desejados,
+  e P linhas com o nome e a quantidade.
+
+SAIDA
+  Uma linha por caso: R$ seguido do valor total com duas casas decimais.
+
+EXEMPLO DE ENTRADA
+    1
+    4
+    mamao 2.19
+    cebola 3.10
+    tomate 2.80
+    uva 2.73
+    3
+    mamao 2
+    tomate 1
+    uva 3
+
+EXEMPLO DE SAIDA
+    R$ 15.37
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

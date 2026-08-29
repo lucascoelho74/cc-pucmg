@@ -1,0 +1,28 @@
+1176 - Fibonacci em Vetor
+https://judge.beecrowd.com/pt/problems/view/1176
+------------------------------------------------------------------------
+Várias consultas, cada uma pedindo um termo de Fibonacci. Calcular do
+zero a cada consulta é desperdício: preencha a tabela uma vez até o
+maior valor possível e responda cada consulta em O(1). Use um tipo de 64
+bits — em 32 bits a sequência estoura por volta do 47º termo.
+
+ENTRADA
+  A primeira linha traz a quantidade de casos; cada linha seguinte tem um
+  inteiro N (0 ≤ N ≤ 60).
+
+SAIDA
+  Uma linha por caso no formato Fib(N) = V.
+
+EXEMPLO DE ENTRADA
+    3
+    0
+    1
+    2
+
+EXEMPLO DE SAIDA
+    Fib(0) = 0
+    Fib(1) = 1
+    Fib(2) = 1
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

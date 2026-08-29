@@ -1,0 +1,48 @@
+1340 - Eu Posso Adivinhar a Estrutura de Dados!
+https://judge.beecrowd.com/pt/problems/view/1340
+------------------------------------------------------------------------
+Você recebe uma sequência de operações de inserção e remoção junto com
+os resultados obtidos, e precisa dizer qual estrutura se comporta assim:
+pilha, fila ou heap de máximo. A solução é simular as três em paralelo e
+eliminar as que contradisserem algum resultado. No fim pode sobrar uma,
+nenhuma, ou mais de uma — e cada caso tem sua resposta.
+
+ENTRADA
+  Vários casos até o fim do arquivo. Cada caso começa com n (1 ≤ n ≤
+  1000), seguido de n linhas: 1 x joga o valor x na sacola, e 2 x tira um
+  elemento e afirma que o obtido foi x (x inteiro positivo ≤ 100).
+
+SAIDA
+  Uma linha por caso, exatamente uma destas: stack, queue, priority queue,
+  impossible (nenhuma das três serve) ou not sure (mais de uma serve).
+
+EXEMPLO DE ENTRADA
+    6
+    1 1
+    1 2
+    1 3
+    2 1
+    2 2
+    2 3
+    6
+    1 1
+    1 2
+    1 3
+    2 3
+    2 2
+    2 1
+    2
+    1 1
+    2 2
+
+EXEMPLO DE SAIDA
+    queue
+    not sure
+    impossible
+
+PEGADINHA
+  A fila de prioridade é de máximo: ela sempre entrega o maior elemento
+  primeiro.
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

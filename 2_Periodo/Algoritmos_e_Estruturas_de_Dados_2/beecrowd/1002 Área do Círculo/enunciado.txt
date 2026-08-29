@@ -1,0 +1,21 @@
+1002 - Área do Círculo
+https://judge.beecrowd.com/pt/problems/view/1002
+------------------------------------------------------------------------
+Ler o raio de um círculo e calcular sua área pela fórmula A = π · R²,
+usando π = 3.14159.
+
+ENTRADA
+  Um valor real correspondente ao raio.
+
+SAIDA
+  O texto A= (sem espaços em volta do sinal) seguido da área com quatro
+  casas decimais.
+
+EXEMPLO DE ENTRADA
+    2.00
+
+EXEMPLO DE SAIDA
+    A=12.5664
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

@@ -1,0 +1,41 @@
+1256 - Tabelas Hash
+https://judge.beecrowd.com/pt/problems/view/1256
+------------------------------------------------------------------------
+Implementar uma tabela hash do zero, com função h(x) = x mod M e
+tratamento de colisão por encadeamento: cada posição guarda uma lista, e
+valores que colidem entram nela. Vale fazer este antes de sair usando
+HashMap — depois dele você entende o que a classe pronta faz por baixo.
+
+ENTRADA
+  A primeira linha traz N, o número de casos. Cada caso tem duas linhas: a
+  primeira com M (1 ≤ M ≤ 100), a quantidade de endereços-base, e C (1 ≤ C
+  ≤ 200), a quantidade de chaves; a segunda com as C chaves (valores de 1
+  a 200) separadas por espaço.
+
+SAIDA
+  M linhas por caso, uma por endereço-base, no formato i -> v1 -> v2 -> \
+  — repare que toda linha termina com a barra invertida, inclusive as
+  vazias. Linha em branco entre dois casos.
+
+EXEMPLO DE ENTRADA
+    1
+    13 9
+    44 45 49 70 27 73 92 97 95
+
+EXEMPLO DE SAIDA
+    0 -> \
+    1 -> 27 -> 92 -> \
+    2 -> \
+    3 -> \
+    4 -> 95 -> \
+    5 -> 44 -> 70 -> \
+    6 -> 45 -> 97 -> \
+    7 -> \
+    8 -> 73 -> \
+    9 -> \
+    10 -> 49 -> \
+    11 -> \
+    12 -> \
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.

@@ -1,0 +1,28 @@
+1018 - Cédulas
+https://judge.beecrowd.com/pt/problems/view/1018
+------------------------------------------------------------------------
+Ler um valor inteiro e decompô-lo na menor quantidade possível de
+cédulas de 100, 50, 20, 10, 5, 2 e 1 real.
+
+ENTRADA
+  Um inteiro N, com 0 < N < 1000000.
+
+SAIDA
+  O valor lido na primeira linha e, em seguida, uma linha por cédula no
+  formato X nota(s) de R$ Y,00, da maior para a menor.
+
+EXEMPLO DE ENTRADA
+    576
+
+EXEMPLO DE SAIDA
+    576
+    5 nota(s) de R$ 100,00
+    1 nota(s) de R$ 50,00
+    1 nota(s) de R$ 20,00
+    0 nota(s) de R$ 10,00
+    1 nota(s) de R$ 5,00
+    0 nota(s) de R$ 2,00
+    1 nota(s) de R$ 1,00
+------------------------------------------------------------------------
+Problema do beecrowd. Enunciado reescrito para estudo; o texto oficial,
+os casos de teste e a submissao estao no link acima.
