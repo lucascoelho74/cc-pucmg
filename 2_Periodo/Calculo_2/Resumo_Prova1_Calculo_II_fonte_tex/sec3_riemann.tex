@@ -1,0 +1,433 @@
+\section{Somas de Riemann e a integral definida (5.1 e 5.2)}
+
+\subsection{A ideia em uma frase}
+
+Para uma região de lados curvos não existe fórmula pronta de área. A estratégia é a mesma da reta tangente (aproximar por secantes e passar ao limite): \textbf{aproximar por retângulos, somar, e fazer o número de retângulos ir a infinito}. A soma dos retângulos é a \emph{soma de Riemann}; o limite é a \emph{integral definida}.
+
+\subsection{Anatomia da fórmula --- o que cada símbolo significa}
+
+\begin{definicao}[{Integral definida como limite de somas de Riemann (extremidades direitas)}]
+\[
+\int_a^b f(x)\dx \;=\;
+\textcolor{cLim}{\lim_{n\to\infty}}\;
+\textcolor{cSum}{\sum_{i=1}^{n}}\;
+\textcolor{cF}{f(x_i^*)}\;
+\textcolor{cDx}{\Delta x},
+\qquad
+\textcolor{cDx}{\Delta x=\frac{b-a}{n}},
+\qquad
+\textcolor{cX}{x_i = a + i\,\Delta x}
+\]
+\end{definicao}
+
+\begin{center}
+\begin{tikzpicture}[xscale=2.05, yscale=1.55, >=Stealth]
+  \def\f#1{(1.75 + 0.55*sin(1.15*#1 r) + 0.06*#1)}
+  \def\a{0.6}\def\b{5.6}\def\n{5}
+  \pgfmathsetmacro{\dx}{(\b-\a)/\n}
+  % retângulos (pontos médios)
+  \foreach \i in {1,...,5}{
+    \pgfmathsetmacro{\xl}{\a+(\i-1)*\dx}
+    \pgfmathsetmacro{\xr}{\a+\i*\dx}
+    \pgfmathsetmacro{\xm}{(\xl+\xr)/2}
+    \pgfmathsetmacro{\h}{\f{\xm}}
+    \ifnum\i=3
+      \fill[cSum!35] (\xl,0) rectangle (\xr,\h);
+      \draw[cSum, thick] (\xl,0) rectangle (\xr,\h);
+    \else
+      \fill[azul!12] (\xl,0) rectangle (\xr,\h);
+      \draw[azul!60] (\xl,0) rectangle (\xr,\h);
+    \fi
+  }
+  % curva
+  \draw[thick, azul, domain=0.3:5.9, samples=80] plot (\x, {\f{\x}});
+  \node[azul, above left] at (1.6,{\f{1.6}+0.05}) {$y=f(x)$};
+  % eixos
+  \draw[->] (0,0) -- (6.2,0) node[right] {$x$};
+  \draw[->] (0,0) -- (0,3.2) node[above] {$y$};
+  % marcas
+  \pgfmathsetmacro{\xl}{\a+2*\dx}\pgfmathsetmacro{\xr}{\a+3*\dx}\pgfmathsetmacro{\xm}{(\xl+\xr)/2}
+  \pgfmathsetmacro{\h}{\f{\xm}}
+  \foreach \i in {0,...,5}{
+    \pgfmathsetmacro{\xx}{\a+\i*\dx}
+    \draw (\xx,0.06) -- (\xx,-0.06);
+  }
+  \node[below] at (\a,-0.05) {$a=x_0$};
+  \node[below] at (\b,-0.05) {$x_n=b$};
+  \node[below] at (\a+\dx,-0.05) {$x_1$};
+  \node[below] at (\xl,-0.05) {$x_{i-1}$};
+  \node[below] at (\xr,-0.05) {$x_i$};
+  \node[below] at (\a+4*\dx,-0.05) {$\cdots$};
+  % ponto amostral
+  \draw[cX, thick] (\xm,0.08) -- (\xm,-0.08);
+  \node[cX, below, yshift=-9pt] at (\xm,0) {$x_i^*$};
+  \draw[cX, dashed] (\xm,0) -- (\xm,\h);
+  \fill[cX] (\xm,\h) circle (1.3pt);
+  % altura
+  \draw[cF, <->] (\xr+0.12,0) -- (\xr+0.12,\h) node[midway, right, cF] {$f(x_i^*)$ \small(altura)};
+  % largura
+  \draw[cDx, <->] (\xl,\h+0.22) -- (\xr,\h+0.22) node[midway, above, cDx] {$\Delta x$ \small(base)};
+  % area label
+  \node[cSum, font=\small, fill=cSum!35, inner sep=1pt] at (\xm,\h/2) {$f(x_i^*)\,\Delta x$};
+  % chaves
+  \draw[decorate, decoration={brace, amplitude=5pt, mirror}] (\a,-0.55) -- (\b,-0.55) node[midway, below, yshift=-4pt] {$n$ subintervalos de largura $\Delta x=\frac{b-a}{n}$};
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}>{\centering\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{6.0cm}>{\raggedright\arraybackslash}p{8.2cm}@{}}
+\toprule
+\textbf{Símbolo} & \textbf{O que é} & \textbf{Como calcular / como ler}\\
+\midrule
+$a$, $b$ & extremos do intervalo & a integral ``começa em $a$ e termina em $b$''; $b-a$ é o comprimento total\\
+$n$ & número de subintervalos (retângulos) & você escolhe $n$ para \emph{estimar}; na integral, $n\to\infty$\\
+\textcolor{cDx}{$\Delta x$} & largura (base) de cada retângulo & $\Delta x=\dfrac{b-a}{n}$ --- comprimento total dividido em $n$ partes iguais\\
+$x_0,\dots,x_n$ & as divisões (extremidades dos subintervalos) & $x_i = a+i\,\Delta x$; $x_0=a$, $x_n=b$; o $i$-ésimo subintervalo é $[x_{i-1},x_i]$\\
+\textcolor{cX}{$x_i^*$} & ponto amostral: onde medimos a altura & qualquer ponto de $[x_{i-1},x_i]$: esquerda $x_i^*=x_{i-1}$; direita $x_i^*=x_i$; ponto médio $\bar x_i=\dfrac{x_{i-1}+x_i}{2}=a+\big(i-\tfrac12\big)\Delta x$\\
+\textcolor{cF}{$f(x_i^*)$} & altura do $i$-ésimo retângulo, \textbf{com sinal} & se $f(x_i^*)<0$ o retângulo fica abaixo do eixo e sua contribuição é negativa\\
+\textcolor{cF}{$f(x_i^*)$}\textcolor{cDx}{$\Delta x$} & área (com sinal) do $i$-ésimo retângulo & altura $\times$ base; unidade $=[f]\cdot[x]$\\
+\textcolor{cSum}{$\sum_{i=1}^{n}$} & somar os $n$ retângulos & $i=1$ é o primeiro (encostado em $a$), $i=n$ o último (encostado em $b$). Dentro do $\sum$, $n$ é \emph{constante}; $i$ é o que varia\\
+\textcolor{cLim}{$\lim_{n\to\infty}$} & mais retângulos, cada vez mais finos & $n\to\infty \Leftrightarrow \Delta x\to 0$; o erro da aproximação vai a zero; o valor do limite é a integral (um \textbf{número})\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{definicao}[{A notação de Leibniz é a soma de Riemann ``no limite''}]
+\[
+\textcolor{cLim}{\lim_{n\to\infty}}\textcolor{cSum}{\sum_{i=1}^n} \;\longrightarrow\; \int_a^b
+\qquad
+\textcolor{cX}{x_i^*} \;\longrightarrow\; x
+\qquad
+\textcolor{cDx}{\Delta x} \;\longrightarrow\; dx
+\qquad
+\textcolor{cF}{f(x_i^*)}\textcolor{cDx}{\Delta x} \;\longrightarrow\; f(x)\dx
+\]
+O $\int$ é um S alongado (de \emph{soma}); $f(x)\dx$ é ``a área de uma fatia infinitamente fina''. O $dx$ não é enfeite: ele diz \emph{qual} variável varia (importa em $\int_a^x f(t)\dt$, Parte 4) e carrega a unidade de $x$. É por isso que a unidade de $\int_a^b f(x)\dx$ é $[f]\times[x]$: (m/s)$\cdot$s $=$ m; (kg/m)$\cdot$m $=$ kg.
+\end{definicao}
+
+\subsection{Estimativas: $L_n$, $R_n$, $M_n$ e quem é sub/superestimativa}
+
+\[
+L_n=\sum_{i=1}^n f(x_{i-1})\Delta x,\qquad
+R_n=\sum_{i=1}^n f(x_i)\Delta x,\qquad
+M_n=\sum_{i=1}^n f(\bar x_i)\Delta x .
+\]
+
+\begin{geo}[{Sub ou superestimativa? Olhe a monotonia}]
+\begin{itemize}[leftmargin=1.4em, itemsep=1pt]
+\item $f$ \textbf{crescente} em $[a,b]$: cada retângulo esquerdo fica \emph{dentro} da região e cada direito \emph{sobra} $\Rightarrow$ $L_n\le A\le R_n$.
+\item $f$ \textbf{decrescente}: inverte, $R_n\le A\le L_n$.
+\item $M_n$ costuma ser a melhor das três (os erros de cada retângulo se compensam parcialmente).
+\item Para $f$ monótona, $R_n-L_n=\Delta x\,[f(b)-f(a)]$ (Ex. 5.1.25): os ``degraus'' de diferença entre os dois empilham em um único retângulo de base $\Delta x$ e altura $f(b)-f(a)$. Como $\Delta x\to 0$, $L_n$ e $R_n$ espremem $A$ pelo meio.
+\end{itemize}
+\end{geo}
+
+\begin{exemplo}[{Exemplo 3.1 --- $f(x)=x^2$ em $[0,1]$, $n=4$ (o exemplo clássico da seção 5.1)}]
+$\Delta x=\dfrac{1-0}{4}=\dfrac14$; divisões $x_0=0,\ x_1=\tfrac14,\ x_2=\tfrac12,\ x_3=\tfrac34,\ x_4=1$.
+
+\textbf{Extremidades direitas:}
+\[
+R_4=\Delta x\big[f(\tfrac14)+f(\tfrac12)+f(\tfrac34)+f(1)\big]
+=\frac14\Big[\frac1{16}+\frac4{16}+\frac9{16}+\frac{16}{16}\Big]=\frac14\cdot\frac{30}{16}=\frac{15}{32}=0{,}46875 .
+\]
+\textbf{Extremidades esquerdas:}
+\[
+L_4=\frac14\big[f(0)+f(\tfrac14)+f(\tfrac12)+f(\tfrac34)\big]
+=\frac14\Big[0+\frac1{16}+\frac4{16}+\frac9{16}\Big]=\frac14\cdot\frac{14}{16}=\frac{7}{32}=0{,}21875 .
+\]
+\textbf{Pontos médios} $\bar x_i=\tfrac18,\tfrac38,\tfrac58,\tfrac78$:
+\[
+M_4=\frac14\Big[\frac1{64}+\frac9{64}+\frac{25}{64}+\frac{49}{64}\Big]=\frac14\cdot\frac{84}{64}=\frac{21}{64}=0{,}328125 .
+\]
+Como $x^2$ é crescente em $[0,1]$: $L_4=0{,}219<A<0{,}469=R_4$. Valor exato (Ex.~3.3 e TFC): $A=\tfrac13=0{,}3333\ldots$ --- $M_4$ já erra só $0{,}005$. Conferindo a fórmula da diferença: $R_4-L_4=\tfrac14[f(1)-f(0)]=\tfrac14$ \ok.
+
+\begin{center}
+\begin{tikzpicture}[xscale=3.6, yscale=2.4, >=Stealth]
+  % L4
+  \begin{scope}
+    \foreach \i in {1,...,4}{
+      \pgfmathsetmacro{\xl}{(\i-1)/4}\pgfmathsetmacro{\xr}{\i/4}\pgfmathsetmacro{\h}{\xl*\xl}
+      \fill[azul!15] (\xl,0) rectangle (\xr,\h);
+      \draw[azul!70] (\xl,0) rectangle (\xr,\h);
+    }
+    \draw[thick, azul, domain=0:1.05, samples=40] plot (\x,{\x*\x});
+    \draw[->] (0,0) -- (1.15,0) node[right] {$x$};
+    \draw[->] (0,0) -- (0,1.15) node[above] {$y$};
+    \foreach \x/\l in {0.25/\frac14, 0.5/\frac12, 0.75/\frac34, 1/1}{\draw (\x,0.02)--(\x,-0.02) node[below,font=\scriptsize] {$\l$};}
+    \node[font=\small] at (0.5,-0.32) {$L_4=\tfrac{7}{32}$ (subestimativa)};
+  \end{scope}
+  % R4
+  \begin{scope}[shift={(1.6,0)}]
+    \foreach \i in {1,...,4}{
+      \pgfmathsetmacro{\xl}{(\i-1)/4}\pgfmathsetmacro{\xr}{\i/4}\pgfmathsetmacro{\h}{\xr*\xr}
+      \fill[cSum!20] (\xl,0) rectangle (\xr,\h);
+      \draw[cSum!80] (\xl,0) rectangle (\xr,\h);
+    }
+    \draw[thick, azul, domain=0:1.05, samples=40] plot (\x,{\x*\x});
+    \draw[->] (0,0) -- (1.15,0) node[right] {$x$};
+    \draw[->] (0,0) -- (0,1.15) node[above] {$y$};
+    \foreach \x/\l in {0.25/\frac14, 0.5/\frac12, 0.75/\frac34, 1/1}{\draw (\x,0.02)--(\x,-0.02) node[below,font=\scriptsize] {$\l$};}
+    \node[font=\small] at (0.5,-0.32) {$R_4=\tfrac{15}{32}$ (superestimativa)};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+\end{exemplo}
+
+\begin{exemplo}[{Exemplo 3.2 --- estimando distância a partir de velocidades (5.1.11 / 5.4.75)}]
+Leituras de velocidade de um carro: $t=0,10,20,30$ s $\to$ $v=0,\ 6,\ 10,\ 12$ m/s. Estime a distância nos 30 s.
+
+Aqui $f=v$, $\Delta t = 10$ s e $n=3$. Esquerda: $L_3=(0+6+10)\cdot 10=160$ m. Direita: $R_3=(6+10+12)\cdot 10=280$ m. Se $v$ é crescente no período, $160\le d\le 280$; uma estimativa melhor é a média, $220$ m. Unidade: (m/s)$\cdot$s $=$ m --- a unidade da integral é sempre altura $\times$ base.
+
+\textbf{Leitura:} ``distância $=$ área sob a curva da velocidade'' é o primeiro caso do Teorema da Variação Total (Parte 4).
+\end{exemplo}
+
+\subsection{Uma soma de Riemann com $f$ mudando de sinal (5.2.1--3)}
+
+\begin{exemplo}[{Exemplo 3.3 --- $f(x)=x^2-4$ em $[0,3]$, $n=6$, pontos médios (questão 5.2.3)}]
+$\Delta x=\dfrac{3-0}{6}=\dfrac12$. Divisões $0,\ \tfrac12,\ 1,\ \tfrac32,\ 2,\ \tfrac52,\ 3$; pontos médios $\bar x_i = \tfrac14,\tfrac34,\tfrac54,\tfrac74,\tfrac94,\tfrac{11}4$.
+
+\begin{center}
+\small
+\begin{tabular}{@{}c|cccccc@{}}
+$i$ & 1 & 2 & 3 & 4 & 5 & 6\\
+\hline
+$\bar x_i$ & $0{,}25$ & $0{,}75$ & $1{,}25$ & $1{,}75$ & $2{,}25$ & $2{,}75$\\
+$\bar x_i^{\,2}$ & $0{,}0625$ & $0{,}5625$ & $1{,}5625$ & $3{,}0625$ & $5{,}0625$ & $7{,}5625$\\
+$f(\bar x_i)=\bar x_i^{\,2}-4$ & $-3{,}9375$ & $-3{,}4375$ & $-2{,}4375$ & $-0{,}9375$ & $1{,}0625$ & $3{,}5625$\\
+$f(\bar x_i)\Delta x$ & $-1{,}96875$ & $-1{,}71875$ & $-1{,}21875$ & $-0{,}46875$ & $0{,}53125$ & $1{,}78125$\\
+\end{tabular}
+\end{center}
+\begin{align*}
+M_6=\sum_{i=1}^6 f(\bar x_i)\Delta x &= \frac12\big(-3{,}9375-3{,}4375-2{,}4375-0{,}9375+1{,}0625+3{,}5625\big)\\
+&=\frac12(-6{,}125)=-3{,}0625 .
+\end{align*}
+\textbf{O que a soma representa:} os quatro primeiros retângulos estão \emph{abaixo} do eixo (contribuem negativo) e os dois últimos \emph{acima}. $M_6$ é (área dos retângulos acima) $-$ (área dos retângulos abaixo) $= 2{,}3125-5{,}375=-3{,}0625$. \textbf{Não} é ``a área da região'' --- é uma aproximação da \emph{área líquida com sinal}, isto é, de $\int_0^3(x^2-4)\dx$.
+
+\begin{center}
+\begin{tikzpicture}[xscale=2.3, yscale=0.42, >=Stealth]
+  \foreach \i in {1,...,6}{
+    \pgfmathsetmacro{\xl}{(\i-1)/2}\pgfmathsetmacro{\xr}{\i/2}\pgfmathsetmacro{\xm}{(\xl+\xr)/2}
+    \pgfmathsetmacro{\h}{\xm*\xm-4}
+    \ifdim \h pt<0pt
+      \fill[vermelho!20] (\xl,0) rectangle (\xr,\h); \draw[vermelho!80] (\xl,0) rectangle (\xr,\h);
+    \else
+      \fill[verde!20] (\xl,0) rectangle (\xr,\h); \draw[verde!80] (\xl,0) rectangle (\xr,\h);
+    \fi
+  }
+  \draw[thick, azul, domain=0:3.15, samples=50] plot (\x,{\x*\x-4});
+  \draw[->] (-0.15,0) -- (3.9,0) node[right] {$x$};
+  \draw[->] (0,-4.6) -- (0,5.8) node[above] {$y$};
+  \foreach \x in {1,2,3}{\draw (\x,0.15)--(\x,-0.15) node[below,font=\scriptsize] {$\x$};}
+  \foreach \y in {-4,-2,2,4}{\draw (0.03,\y)--(-0.03,\y) node[left,font=\scriptsize] {$\y$};}
+  \node[azul, font=\small] at (2.5,5.2) {$y=x^2-4$};
+  \node[vermelho, font=\scriptsize, align=center] at (1.0,-5.4) {contribuição negativa};
+  \node[verde, font=\scriptsize, align=center] at (3.35,2.4) {contribuição positiva};
+\end{tikzpicture}
+\end{center}
+\end{exemplo}
+
+\begin{definicao}[{Integral definida $=$ área líquida (com sinal)}]
+\[
+\int_a^b f(x)\dx = (\text{área das partes \emph{acima} do eixo }x) - (\text{área das partes \emph{abaixo}}).
+\]
+Se $f\ge 0$ em $[a,b]$, a integral é a área. Se $f$ muda de sinal, a integral pode ser zero ou negativa mesmo com região ``grande''. A \emph{área geométrica} total é $\int_a^b |f(x)|\dx$ --- exige separar nos zeros de $f$ (mesma ideia de ``distância percorrida'' na Parte 4).
+\end{definicao}
+
+\subsection{Fórmulas de somatório (para calcular o limite exato)}
+
+\begin{definicao}[{Somas de potências e regras do $\sum$}]
+\[
+\sum_{i=1}^n c = nc,\qquad
+\sum_{i=1}^n i=\frac{n(n+1)}{2},\qquad
+\sum_{i=1}^n i^2=\frac{n(n+1)(2n+1)}{6},\qquad
+\sum_{i=1}^n i^3=\Big[\frac{n(n+1)}{2}\Big]^2 .
+\]
+\[
+\sum_{i=1}^n (c\,a_i+b_i)=c\sum_{i=1}^n a_i+\sum_{i=1}^n b_i \qquad\text{(tudo que não depende de $i$ sai do somatório --- inclusive $n$)}.
+\]
+\end{definicao}
+
+\subsection{Calcular a integral pela definição (Teorema 4) --- questões 5.2.27--34}
+
+\begin{metodo}[{Roteiro em seis passos}]
+\begin{enumerate}[leftmargin=1.6em, itemsep=1pt]
+\item Escreva $\Delta x=\frac{b-a}{n}$ e $x_i=a+i\Delta x$.
+\item Calcule $f(x_i)$: substitua $x_i$ na função e \emph{expanda} até ficar um polinômio em $i$ com coeficientes em $n$.
+\item Monte $R_n=\sum f(x_i)\Delta x$ e distribua; tire para fora do $\sum$ tudo que não depende de $i$.
+\item Substitua as fórmulas de $\sum i$, $\sum i^2$, $\sum i^3$, $\sum 1$.
+\item Simplifique cancelando potências de $n$; escreva em termos de $\frac1n$.
+\item Faça $n\to\infty$: todo termo com $\frac1n$, $\frac1{n^2}$, \dots\ vai a zero.
+\end{enumerate}
+\end{metodo}
+
+\begin{exemplo}[{Exemplo 3.4 --- $\displaystyle\int_0^3 (x^2-4)\dx$ pela definição (a mesma função do Ex.~3.3)}]
+\textbf{1.} $\Delta x=\dfrac{3-0}{n}=\dfrac3n$, \quad $x_i=0+i\cdot\dfrac3n=\dfrac{3i}{n}$.
+
+\textbf{2.} $f(x_i)=\Big(\dfrac{3i}{n}\Big)^2-4=\dfrac{9i^2}{n^2}-4$.
+
+\textbf{3.} $R_n=\displaystyle\sum_{i=1}^n\Big(\frac{9i^2}{n^2}-4\Big)\frac3n
+=\sum_{i=1}^n\frac{27i^2}{n^3}-\sum_{i=1}^n\frac{12}{n}
+=\frac{27}{n^3}\sum_{i=1}^n i^2-\frac{12}{n}\sum_{i=1}^n 1 .$
+
+\textbf{4.} $=\dfrac{27}{n^3}\cdot\dfrac{n(n+1)(2n+1)}{6}-\dfrac{12}{n}\cdot n$.
+
+\textbf{5.} $=\dfrac{27}{6}\cdot\dfrac{(n+1)(2n+1)}{n^2}-12=\dfrac92\cdot\dfrac{n+1}{n}\cdot\dfrac{2n+1}{n}-12=\dfrac92\Big(1+\dfrac1n\Big)\Big(2+\dfrac1n\Big)-12$.
+
+\textbf{6.} $\displaystyle\int_0^3(x^2-4)\dx=\lim_{n\to\infty}R_n=\frac92\cdot 1\cdot 2-12=9-12=\boxed{-3}$.
+
+\textbf{Verificação pelo TFC2 (Parte 4):} $\Big[\dfrac{x^3}{3}-4x\Big]_0^3=(9-12)-0=-3$ \ok.
+
+\textbf{Verificação geométrica:} $x^2-4<0$ em $[0,2)$ e $>0$ em $(2,3]$. Área abaixo: $\int_0^2(4-x^2)\dx=8-\tfrac83=\tfrac{16}{3}$. Área acima: $\int_2^3(x^2-4)\dx=(9-12)-(\tfrac83-8)=\tfrac73$. Líquida: $\tfrac73-\tfrac{16}3=-3$ \ok. E o $M_6=-3{,}0625$ do Ex.~3.3 erra por só $0{,}06$.
+\end{exemplo}
+
+\begin{armadilha}[{Erros que aparecem nesse cálculo}]
+\begin{itemize}[leftmargin=1.4em, itemsep=1pt]
+\item Tratar $n$ como se variasse dentro do $\sum$ (ou $i$ como constante). Dentro do somatório, \textbf{$n$ é fixo}; só $i$ corre de $1$ a $n$.
+\item Esquecer de multiplicar por $\Delta x$ (a soma fica sem a base dos retângulos e a unidade fica errada).
+\item $\sum_{i=1}^n 4 = 4n$, não $4$. E $\sum_{i=1}^n \frac{c}{n}=c$.
+\item Esquecer o $a$ em $x_i=a+i\Delta x$ quando $a\neq 0$: para $[1,3]$ com $n$ partes, $x_i=1+\frac{2i}{n}$.
+\item Escrever $\lim$ na frente só na última linha. Enquanto há $n$, é $R_n$; o $\lim$ entra quando você vai avaliar.
+\end{itemize}
+\end{armadilha}
+
+\subsection{A definição geral e quando a integral existe}
+
+\begin{definicao}[{Definição 2 e Teorema 3 da seção 5.2}]
+Para $f$ definida em $[a,b]$, divida $[a,b]$ em $n$ subintervalos de largura $\Delta x$ e escolha pontos amostrais $x_i^*$ \emph{quaisquer} em $[x_{i-1},x_i]$. A \textbf{integral definida} é
+\[
+\int_a^b f(x)\dx=\lim_{n\to\infty}\sum_{i=1}^n f(x_i^*)\Delta x
+\]
+desde que o limite exista \emph{e dê o mesmo valor para toda escolha dos $x_i^*$}. Nesse caso $f$ é \textbf{integrável}.
+
+\textbf{Teorema.} Se $f$ é contínua em $[a,b]$, ou tem apenas um número finito de descontinuidades de salto, então $f$ é integrável em $[a,b]$.
+
+Vocabulário: $f$ é o \emph{integrando}; $a$ e $b$ são os \emph{limites de integração}; a variável é \emph{muda}: $\int_a^b f(x)\dx=\int_a^b f(t)\dt=\int_a^b f(r)\,dr$.
+\end{definicao}
+
+Se $f$ é integrável, \emph{qualquer} escolha de pontos amostrais dá o mesmo limite --- por isso podemos usar sempre extremidades direitas para calcular (Teorema 4) e pontos médios para estimar (Regra do Ponto Médio). O que muda com a escolha é só a velocidade de convergência, não o valor.
+
+\subsection{Traduzir: limite $\leftrightarrow$ integral (5.2.19--22, 25--26; 5.1.16--23; 5.3.85--86)}
+
+\begin{metodo}[{Como reconhecer uma soma de Riemann}]
+Dado $\displaystyle\lim_{n\to\infty}\sum_{i=1}^n(\cdots)$:
+\begin{enumerate}[leftmargin=1.6em, itemsep=1pt]
+\item Ache o fator que \textbf{não depende de $i$} e é proporcional a $\frac1n$: é $\Delta x$; então $b-a=n\Delta x$.
+\item Ache a expressão da forma $a+i\Delta x$ dentro da função: é $x_i$; ela revela $a$ (e $b=a+n\Delta x$).
+\item O que sobra, escrito em função de $x_i$, é $f(x_i)$. Troque $x_i\to x$, $\Delta x\to dx$, $\lim\sum\to\int_a^b$.
+\end{enumerate}
+Caso especial frequente: se aparece $\frac{i}{n}$ e o fator é $\frac1n$, então $\Delta x=\frac1n$, $x_i=\frac in$, intervalo $[0,1]$.
+\end{metodo}
+
+\begin{exemplo}[{Exemplo 3.5 --- de limite para integral (5.2.19--22)}]
+$\displaystyle\lim_{n\to\infty}\sum_{i=1}^n\big[(x_i^*)^3+x_i^*\sen x_i^*\big]\Delta x$ em $[0,\pi]$.
+
+O padrão é literal: $f(x)=x^3+x\sen x$, $a=0$, $b=\pi$. Logo o limite é $\displaystyle\int_0^{\pi}(x^3+x\sen x)\dx$.
+\end{exemplo}
+
+\begin{exemplo}[{Exemplo 3.6 --- limite ``escondido'' em $[0,1]$ (questão 5.3.85)}]
+$\displaystyle\lim_{n\to\infty}\sum_{i=1}^n\Big(\frac{i^4}{n^5}+\frac{i}{n^2}\Big)$.
+
+\textbf{Reconhecer:} $\dfrac{i^4}{n^5}=\Big(\dfrac in\Big)^4\cdot\dfrac1n$ e $\dfrac{i}{n^2}=\Big(\dfrac in\Big)\cdot\dfrac1n$. O fator comum é $\dfrac1n=\Delta x$ e $x_i=\dfrac in$ $\Rightarrow$ $a=0$, $b=1$, $f(x)=x^4+x$.
+\[
+\lim_{n\to\infty}\sum_{i=1}^n\big[x_i^4+x_i\big]\Delta x=\int_0^1(x^4+x)\dx=\Big[\frac{x^5}{5}+\frac{x^2}{2}\Big]_0^1=\frac15+\frac12=\frac{7}{10}.
+\]
+\end{exemplo}
+
+\begin{exemplo}[{Exemplo 3.7 --- soma escrita por extenso (questão 5.3.86)}]
+$\displaystyle\lim_{n\to\infty}\frac1n\Big(\sqrt{\tfrac1n}+\sqrt{\tfrac2n}+\sqrt{\tfrac3n}+\cdots+\sqrt{\tfrac nn}\Big)$.
+
+Reescreva com $\sum$: $\displaystyle\lim_{n\to\infty}\sum_{i=1}^n\sqrt{\frac in}\cdot\frac1n$. Então $\Delta x=\frac1n$, $x_i=\frac in$, $[0,1]$, $f(x)=\sqrt x$:
+\[
+=\int_0^1\sqrt x\dx=\int_0^1 x^{1/2}\dx=\Big[\frac{x^{3/2}}{3/2}\Big]_0^1=\frac23 .
+\]
+\textbf{Leitura:} o limite é a área sob $y=\sqrt x$ de $0$ a $1$ --- dois terços do quadrado unitário.
+\end{exemplo}
+
+\begin{exemplo}[{Exemplo 3.8 --- identificar a região sem calcular (5.1.20--23)}]
+$\displaystyle\lim_{n\to\infty}\sum_{i=1}^n\frac{\pi}{4n}\,\tg\!\Big(\frac{i\pi}{4n}\Big)$.
+
+$\Delta x=\dfrac{\pi}{4n}$ $\Rightarrow$ $b-a=\dfrac\pi4$. \; $x_i=\dfrac{i\pi}{4n}=0+i\Delta x$ $\Rightarrow$ $a=0$, $b=\dfrac\pi4$. \; $f(x)=\tg x$.
+
+Região: sob $y=\tg x$, de $x=0$ a $x=\pi/4$. (Não calcule; o enunciado pede só a região.)
+\end{exemplo}
+
+\begin{exemplo}[{Exemplo 3.9 --- de integral para limite (5.2.25--26)}]
+Escreva $\displaystyle\int_1^3\sqrt{4+x^2}\dx$ como limite de somas de Riemann com extremidades direitas.
+
+$\Delta x=\dfrac{3-1}{n}=\dfrac2n$, \; $x_i=1+\dfrac{2i}{n}$:
+\[
+\int_1^3\sqrt{4+x^2}\dx=\lim_{n\to\infty}\sum_{i=1}^n\sqrt{4+\Big(1+\frac{2i}{n}\Big)^2}\cdot\frac2n .
+\]
+Observação: a leitura de um limite como integral não é única (o mesmo limite pode ser lido em $[0,2]$ com outra $f$, reescalando). Qualquer escolha coerente é aceita --- o que não pode é $\Delta x$ e $x_i$ virem de intervalos diferentes.
+\end{exemplo}
+
+\subsection{Calcular integrais por áreas (5.2.41--46)}
+
+Quando o gráfico é feito de retas e arcos de círculo, a integral sai da geometria --- sem primitiva. Lembre: contribuição positiva acima do eixo, negativa abaixo.
+
+\begin{center}
+\small
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Integrando} & \textbf{Figura e área}\\
+\midrule
+constante $c$ & retângulo: $c\,(b-a)$\\
+$mx+k$ (não muda de sinal) & trapézio: $\dfrac{f(a)+f(b)}{2}\,(b-a)$\\
+$\sqrt{r^2-x^2}$ em $[-r,r]$ & semicírculo: $\dfrac{\pi r^2}{2}$ (em $[0,r]$: quarto de círculo $\dfrac{\pi r^2}{4}$)\\
+$|x-c|$ & dois triângulos com vértice em $x=c$\\
+reta que cruza o eixo & dois triângulos, um positivo e um negativo\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{exemplo}[{Exemplo 3.10 --- três integrais por áreas}]
+\textbf{(a)} $\displaystyle\int_1^4(2x-1)\dx$. Reta com $f(1)=1$ e $f(4)=7$, positiva em $[1,4]$: trapézio de bases $1$ e $7$ e altura $3$: $\dfrac{1+7}{2}\cdot 3=12$. Conferindo: $[x^2-x]_1^4=(16-4)-(1-1)=12$ \ok.
+
+\textbf{(b)} $\displaystyle\int_{-3}^{3}\big(1+\sqrt{9-x^2}\big)\dx=\int_{-3}^3 1\dx+\int_{-3}^3\sqrt{9-x^2}\dx = 6+\frac{\pi\cdot 3^2}{2}=6+\frac{9\pi}{2}$ (retângulo $6\times1$ mais semicírculo de raio $3$).
+
+\textbf{(c)} $\displaystyle\int_0^{10}|x-5|\dx$: triângulo de $0$ a $5$ (base 5, altura 5) e outro de $5$ a $10$, ambos acima do eixo: $2\cdot\dfrac{5\cdot5}{2}=25$.
+
+\textbf{(d)} $\displaystyle\int_{-2}^{4}(6-2x)\dx$: a reta zera em $x=3$. Triângulo acima em $[-2,3]$: base $5$, altura $f(-2)=10$, área $25$. Triângulo abaixo em $[3,4]$: base $1$, altura $|f(4)|=2$, área $1$. Integral $=25-1=24$. Conferindo: $[6x-x^2]_{-2}^4=(24-16)-(-12-4)=8+16=24$ \ok.
+\end{exemplo}
+
+\subsection{Propriedades da integral definida (5.2.53--62)}
+
+\begin{definicao}[{Propriedades}]
+\begin{multicols}{2}
+\begin{enumerate}[leftmargin=1.6em, itemsep=1pt]
+\item $\displaystyle\int_a^a f\dx=0$
+\item $\displaystyle\int_b^a f\dx=-\int_a^b f\dx$
+\item $\displaystyle\int_a^b c\dx=c(b-a)$
+\item $\displaystyle\int_a^b(cf\pm g)\dx=c\int_a^b f\dx\pm\int_a^b g\dx$
+\item $\displaystyle\int_a^c f\dx+\int_c^b f\dx=\int_a^b f\dx$ (para qualquer $c$)
+\item $f\ge0$ em $[a,b]\Rightarrow\displaystyle\int_a^b f\dx\ge0$
+\item $f\ge g$ em $[a,b]\Rightarrow\displaystyle\int_a^b f\dx\ge\int_a^b g\dx$
+\item $m\le f\le M$ em $[a,b]\Rightarrow m(b-a)\le\displaystyle\int_a^b f\dx\le M(b-a)$
+\end{enumerate}
+\end{multicols}
+\end{definicao}
+
+\begin{exemplo}[{Exemplo 3.11 --- usando as propriedades}]
+\textbf{(a)} Se $\int_0^9 f\dx=37$ e $\int_0^9 g\dx=16$: $\displaystyle\int_0^9[2f+3g]\dx=2(37)+3(16)=122$.
+
+\textbf{(b)} Se $\int_1^5 f\dx=12$ e $\int_4^5 f\dx=3{,}6$: $\displaystyle\int_1^4 f\dx=12-3{,}6=8{,}4$ (propriedade 5).
+
+\textbf{(c)} Sabendo que $\int_0^1 x^2\dx=\frac13$: $\displaystyle\int_0^1(5-6x^2)\dx=5\cdot1-6\cdot\frac13=3$.
+
+\textbf{(d)} Estime $\int_0^1 e^{-x^2}\dx$: $e^{-x^2}$ é decrescente em $[0,1]$, máximo $M=e^0=1$, mínimo $m=e^{-1}$. Propriedade 8: $e^{-1}\le\int_0^1 e^{-x^2}\dx\le1$, ou seja, entre $0{,}37$ e $1$. (A integral está entre o retângulo baixo e o quadrado.)
+\end{exemplo}
+
+\begin{exercicios}[{Exercícios similares --- Parte 3}]
+\begin{enumerate}[leftmargin=1.6em, itemsep=2pt, label=\textbf{3.\arabic*}]
+\item $f(x)=x^3$ em $[0,2]$, $n=4$. Calcule $R_4$ e $L_4$, diga qual é sub/superestimativa e por quê. (Exato: $4$.)
+\item $f(x)=1/x$ em $[1,2]$, $n=4$, extremidades direitas (questão 5.1.3). Sub ou super? Repita com esquerdas.
+\item Calcule $\displaystyle\int_1^3(x^2+1)\dx$ pela definição (Teorema 4). Confira pelo TFC.
+\item Expresse como integral: (a) $\displaystyle\lim_{n\to\infty}\sum_{i=1}^n\big[5(x_i^*)^3-4x_i^*\big]\Delta x$ em $[2,7]$; (b) $\displaystyle\lim_{n\to\infty}\sum_{i=1}^n\frac3n\sqrt{1+\frac{3i}{n}}$ --- e calcule (b).
+\item Determine a região cuja área é $\displaystyle\lim_{n\to\infty}\sum_{i=1}^n\frac2n\Big(5+\frac{2i}{n}\Big)^{10}$.
+\item Por áreas: (a) $\displaystyle\int_0^4|x-1|\dx$; \;(b) $\displaystyle\int_{-2}^2\sqrt{4-x^2}\dx$; \;(c) $\displaystyle\int_0^3(2x-4)\dx$.
+\item Escreva $\displaystyle\int_0^2 e^{x}\dx$ como limite de somas de Riemann com extremidades direitas (não calcule).
+\item Use a propriedade 8 para mostrar que $\displaystyle 2\le\int_{-1}^1\sqrt{1+x^2}\dx\le 2\sqrt2$.
+\end{enumerate}
+\end{exercicios}

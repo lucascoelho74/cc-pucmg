@@ -19,3 +19,25 @@ Iniciacao_Cientifica/
 # ---- Notas geradas (AEDs II) ----
 2_Periodo/Algoritmos_e_Estruturas_de_Dados_2/AEDS2-GRAFO.md
 2_Periodo/Algoritmos_e_Estruturas_de_Dados_2/AEDS2-MATERIAL.md
+
+# ---- Artefatos de compilacao (Java / C) ----
+*.class
+*.o
+a.out
+# binarios sem extensao gerados pelo gcc nas pastas de TP
+2_Periodo/Algoritmos_e_Estruturas_de_Dados_2/tps/**/main
+2_Periodo/Algoritmos_e_Estruturas_de_Dados_2/tps/**/prog
+
+# ---- Saida de depuracao dos TPs ----
+saida.txt
+meu.out
+
+# ---- Config local do Claude Code ----
+.claude/
+
+# ---- Repos do GitHub Classroom (independentes, com remote proprio) ----
+# Nao versionar aqui: cada um tem seu repo em github.com/ICEI-DIW
+2_Periodo/Desenvolvimento_de_Interfaces_Web/DIW-repo/
+
+# ---- Calculo 1 ----
+1_Periodo/Calculo_1/

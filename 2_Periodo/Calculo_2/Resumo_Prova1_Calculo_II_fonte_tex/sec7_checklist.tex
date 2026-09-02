@@ -1,0 +1,98 @@
+\newpage
+\section{Checklist de armadilhas e formulário de bolso}
+
+\begin{armadilha}[{Os 16 erros que mais custam ponto na P1 --- confira antes de entregar}]
+\begin{multicols}{2}
+\begin{enumerate}[leftmargin=1.5em, itemsep=1pt]
+\item Faltou $+C$ na indefinida (ou sobrou $C$ na definida).
+\item $\int\sen=-\cos$; $\int\cos=\sen$. Derive para conferir o sinal.
+\item Radianos. $\cos0=1$, $\sen\frac\pi2=1$, $\cos\pi=-1$.
+\item $\int x^{-1}\dx=\ln|x|+C$, não $x^0/0$.
+\item Não dividiu termo a termo / não expandiu antes de integrar.
+\item Descartou primitiva em forma fatorada sem derivá-la.
+\item Na substituição, sobrou $x$ na integral em $u$.
+\item Na definida com substituição, não trocou os limites (ou misturou $x$ e $u$).
+\item Aplicou TFC2 com integrando descontínuo no intervalo.
+\item $F(a)-F(b)$ em vez de $F(b)-F(a)$.
+\item Chamou a integral de ``área'' quando $f$ muda de sinal.
+\item Confundiu distância com deslocamento (esqueceu $|v|$ e os zeros de $v$).
+\item Dentro do $\sum$, tratou $n$ como variável ou esqueceu o $\Delta x$.
+\item $x_i=a+i\Delta x$: esqueceu o $a$.
+\item $\frac{d}{dx}\int_a^b f=0$; $\frac{d}{dx}\int_a^x f(t)\dt=f(x)$; com $u(x)$ em cima, multiplica por $u'$.
+\item ``Duas primitivas diferem por constante'' só vale em um \emph{intervalo}.
+\end{enumerate}
+\end{multicols}
+\end{armadilha}
+
+\newpage
+\begin{definicao}[{Formulário --- tudo da P1 em uma página}]
+\small
+\textbf{Soma de Riemann e integral definida}
+\[
+\int_a^b f(x)\dx=\lim_{n\to\infty}\sum_{i=1}^n f(x_i^*)\Delta x,\qquad \Delta x=\frac{b-a}{n},\qquad x_i=a+i\Delta x,\qquad \bar x_i=a+\big(i-\tfrac12\big)\Delta x
+\]
+\[
+L_n=\sum_{i=1}^n f(x_{i-1})\Delta x,\qquad R_n=\sum_{i=1}^n f(x_i)\Delta x,\qquad M_n=\sum_{i=1}^n f(\bar x_i)\Delta x;\qquad f\ \text{crescente}\ \Rightarrow\ L_n\le\int_a^b f\le R_n
+\]
+\[
+\sum_{i=1}^n i=\frac{n(n+1)}{2},\qquad \sum_{i=1}^n i^2=\frac{n(n+1)(2n+1)}{6},\qquad \sum_{i=1}^n i^3=\Big[\frac{n(n+1)}{2}\Big]^2,\qquad \sum_{i=1}^n c=nc
+\]
+\textbf{Propriedades:} $\int_a^a f=0$; \ $\int_b^a f=-\int_a^b f$; \ $\int_a^b c\dx=c(b-a)$; \ linearidade; \ $\int_a^c f+\int_c^b f=\int_a^b f$; \ $f\ge g\Rightarrow\int_a^b f\ge\int_a^b g$; \ $m\le f\le M\Rightarrow m(b-a)\le\int_a^b f\le M(b-a)$.
+
+\textbf{TFC} \ ($f$ contínua, $F'=f$)
+\[
+\frac{d}{dx}\int_a^x f(t)\dt=f(x),\qquad
+\frac{d}{dx}\int_{u(x)}^{v(x)}f(t)\dt=f\big(v(x)\big)v'(x)-f\big(u(x)\big)u'(x),\qquad
+\int_a^b f(x)\dx=F(b)-F(a)
+\]
+\textbf{Variação total / cinemática}
+\[
+\int_a^b F'(x)\dx=F(b)-F(a),\qquad
+\text{desloc.}=\int_{t_1}^{t_2}v\dt,\qquad
+\text{dist.}=\int_{t_1}^{t_2}|v|\dt,\qquad
+\int_{t_1}^{t_2}a\dt=v(t_2)-v(t_1)
+\]
+\textbf{Tabela} (todas com $+C$)
+\[
+\int x^n\dx=\frac{x^{n+1}}{n+1}\ (n\ne-1),\qquad
+\int\frac{dx}{x}=\ln|x|,\qquad
+\int e^x\dx=e^x,\qquad
+\int a^x\dx=\frac{a^x}{\ln a}
+\]
+\[
+\int\sen x\dx=-\cos x,\qquad
+\int\cos x\dx=\sen x,\qquad
+\int\senh x\dx=\cosh x,\qquad
+\int\cosh x\dx=\senh x
+\]
+\[
+\int\sec^2x\dx=\tg x,\qquad
+\int\cossec^2x\dx=-\cotg x,\qquad
+\int\frac{dx}{1+x^2}=\arctg x
+\]
+\[
+\int\sec x\tg x\dx=\sec x,\qquad
+\int\cossec x\cotg x\dx=-\cossec x,\qquad
+\int\frac{dx}{\sqrt{1-x^2}}=\arcsen x
+\]
+\textbf{Substituição} \ ($u=g(x)$, $du=g'(x)\dx$)
+\[
+\int f\big(g(x)\big)g'(x)\dx=\int f(u)\du,\qquad
+\int_a^b f\big(g(x)\big)g'(x)\dx=\int_{g(a)}^{g(b)}f(u)\du,\qquad
+\int\frac{g'(x)}{g(x)}\dx=\ln|g(x)|+C
+\]
+\textbf{Simetria:} $f$ par $\Rightarrow\int_{-a}^a f=2\int_0^a f$; \ $f$ ímpar $\Rightarrow\int_{-a}^a f=0$.
+
+\textbf{Aplicações}
+\[
+A=\int_a^b\big[f(x)-g(x)\big]\dx\ \ \text{(cima $-$ baixo)},\qquad
+A=\int_c^d\big[x_{\text{dir}}(y)-x_{\text{esq}}(y)\big]\,dy
+\]
+\[
+V=\int_a^b A(x)\dx;\qquad \text{disco: }A=\pi[f(x)]^2;\qquad \text{anel: }A=\pi\big(R^2-r^2\big)
+\]
+\[
+\text{cascas (eixo $y$): }V=\int_a^b 2\pi x\,f(x)\dx\qquad(\text{raio }x,\ \text{altura }f(x),\ \text{espessura }dx)
+\]
+\textbf{Identidades:} $\tg^2x=\sec^2x-1$; \ $\sen^2x=\frac{1-\cos2x}{2}$; \ $\cos^2x=\frac{1+\cos2x}{2}$; \ $\sen x\cos x=\frac12\sen2x$; \ $\sen^2x+\cos^2x=1$.
+\end{definicao}

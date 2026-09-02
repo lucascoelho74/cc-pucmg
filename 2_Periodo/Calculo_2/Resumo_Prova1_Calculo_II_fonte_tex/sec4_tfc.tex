@@ -1,0 +1,263 @@
+\section[TFC (5.3) e Teorema da Variação Total (5.4)]{O Teorema Fundamental do Cálculo (5.3) e o Teorema da Variação Total (5.4)}
+
+\subsection{TFC1 --- a função ``área até aqui'' e sua derivada}
+
+\begin{definicao}[{TFC, Parte 1}]
+Se $f$ é contínua em $[a,b]$, a função
+\[
+g(x)=\int_a^x f(t)\dt,\qquad a\le x\le b,
+\]
+é contínua em $[a,b]$, derivável em $(a,b)$ e
+\[
+g'(x)=f(x)\qquad\text{ou seja}\qquad \frac{d}{dx}\int_a^x f(t)\dt=f(x).
+\]
+\end{definicao}
+
+\begin{geo}[{Por que a derivada da área é a altura}]
+$g(x)$ é a área sob $f$ de $a$ até $x$ (``área acumulada até aqui''). Ao avançar de $x$ para $x+h$, a área ganha uma faixa fina de largura $h$ e altura $\approx f(x)$:
+\[
+g(x+h)-g(x)\approx f(x)\,h
+\quad\Longrightarrow\quad
+\frac{g(x+h)-g(x)}{h}\approx f(x)
+\quad\xrightarrow{\;h\to0\;}\quad g'(x)=f(x).
+\]
+\begin{center}
+\begin{tikzpicture}[xscale=1.9, yscale=1.5, >=Stealth]
+  \def\f#1{(1.0 + 0.5*sin(1.4*#1 r) + 0.15*#1)}
+  \fill[azul!15, domain=0.6:3.0, samples=40] plot (\x,{\f{\x}}) -- (3.0,0) -- (0.6,0) -- cycle;
+  \fill[cSum!45, domain=3.0:3.35, samples=10] plot (\x,{\f{\x}}) -- (3.35,0) -- (3.0,0) -- cycle;
+  \draw[thick, azul, domain=0.3:5.2, samples=80] plot (\x,{\f{\x}});
+  \draw[->] (0,0) -- (5.5,0) node[right] {$t$};
+  \draw[->] (0,0) -- (0,2.4) node[above] {$y$};
+  \draw (0.6,0.05)--(0.6,-0.05) node[below] {$a$};
+  \draw (3.0,0.05)--(3.0,-0.05) node[below] {$x$};
+  \draw (3.35,0.05)--(3.35,-0.05) node[below, xshift=6pt] {$x+h$};
+  \node[azul] at (1.8,0.55) {$g(x)$};
+  \pgfmathsetmacro{\hh}{\f{3.0}}
+  \draw[cSum, <->] (3.55,0) -- (3.55,\hh) node[midway, right, cSum, font=\small] {$f(x)$};
+  \node[azul, font=\small, above] at (4.6,{(1.0 + 0.5*sin(1.4*4.6 r) + 0.15*4.6)+0.08}) {$y=f(t)$};
+  \node[cSum, font=\small, align=left, anchor=west] at (3.75,{(1.0 + 0.5*sin(1.4*3.0 r) + 0.15*3.0)+0.35}) {faixa $\approx f(x)\,h$};
+\end{tikzpicture}
+\end{center}
+Observação: a variável de integração $t$ é ``muda'' (interna). $g$ depende só de $x$, que aparece no limite superior. O limite inferior $a$ não aparece na derivada: ele só desloca $g$ por uma constante.
+\end{geo}
+
+\begin{definicao}[{Lendo o gráfico de $g(x)=\int_a^x f(t)\dt$ a partir do gráfico de $f$ (5.3.2--4, 83--84)}]
+Como $g'=f$ e $g''=f'$:
+\begin{itemize}[leftmargin=1.4em, itemsep=1pt]
+\item $g(a)=0$ (área de largura zero).
+\item $g$ cresce onde $f>0$ (está somando área) e decresce onde $f<0$ (subtraindo).
+\item $g$ tem máximo local onde $f$ passa de $+$ para $-$; mínimo local onde passa de $-$ para $+$.
+\item $g$ é côncava para cima onde $f$ é crescente, para baixo onde $f$ é decrescente.
+\item $g'(c)=f(c)$: a inclinação de $g$ em $c$ é a \emph{altura} de $f$ em $c$. Ex.: se $f(3)=0$ com $f$ mudando de sinal, $g$ tem tangente horizontal em $3$.
+\end{itemize}
+\end{definicao}
+
+\begin{definicao}[{TFC1 com regra da cadeia --- os três formatos}]
+Para $u$ e $v$ deriváveis e $f$ contínua:
+\[
+\frac{d}{dx}\int_a^{u(x)}f(t)\dt=f\big(u(x)\big)\,u'(x),
+\qquad
+\frac{d}{dx}\int_{u(x)}^{b}f(t)\dt=-f\big(u(x)\big)\,u'(x),
+\]
+\[
+\frac{d}{dx}\int_{u(x)}^{v(x)}f(t)\dt=f\big(v(x)\big)\,v'(x)-f\big(u(x)\big)\,u'(x).
+\]
+Origem: $\int_a^{u(x)}f\dt=g(u(x))$ com $g(y)=\int_a^y f\dt$; a regra da cadeia dá $g'(u)\,u'=f(u)\,u'$. O segundo caso é o primeiro com a propriedade $\int_u^b=-\int_b^u$. O terceiro é a soma dos dois, separando em um ponto qualquer.
+\end{definicao}
+
+\begin{exemplo}[{Exemplo 4.1 --- as questões 5.3.9, 5.3.10, 5.3.13, 5.3.17, 5.3.19 e o Exemplo 4 do livro}]
+\begin{enumerate}[leftmargin=1.6em, itemsep=3pt, label=(\alph*)]
+\item $g(x)=\displaystyle\int_1^x\ln(1+t^2)\dt$ \;$\Rightarrow$\; $g'(x)=\ln(1+x^2)$. (Limite superior é $x$ puro: troque $t$ por $x$.)
+\item $\dfrac{d}{dx}\displaystyle\int_1^{x^4}\sec t\dt$: $u=x^4$, $u'=4x^3$ \;$\Rightarrow$\; $\sec(x^4)\cdot4x^3$.
+\item $F(x)=\displaystyle\int_x^0\sqrt{1+\sec t}\dt=-\int_0^x\sqrt{1+\sec t}\dt$ \;$\Rightarrow$\; $F'(x)=-\sqrt{1+\sec x}$.
+\item $y=\displaystyle\int_1^{3x+2}\frac{t}{1+t^3}\dt$: $u=3x+2$, $u'=3$ \;$\Rightarrow$\; $y'=\dfrac{3x+2}{1+(3x+2)^3}\cdot3$.
+\item $y=\displaystyle\int_{\sqrt x}^{\pi/4}\theta\tg\theta\,d\theta$: limite inferior variável, $u=\sqrt x$, $u'=\dfrac{1}{2\sqrt x}$:
+\[
+y'=-\big(\sqrt x\,\tg\sqrt x\big)\cdot\frac{1}{2\sqrt x}=-\frac{\tg\sqrt x}{2}.
+\]
+\item $h(x)=\displaystyle\int_{2x}^{x^2}\sen(t^2)\dt$ \;$\Rightarrow$\; $h'(x)=\sen\big((x^2)^2\big)\cdot 2x-\sen\big((2x)^2\big)\cdot2=2x\sen(x^4)-2\sen(4x^2)$.
+\end{enumerate}
+Em nenhum item você precisa (ou consegue) achar a primitiva do integrando. É esse o ponto do TFC1.
+\end{exemplo}
+
+\begin{exemplo}[{Exemplo 4.2 --- ``encontre $f$ e $a$'' (questão 5.3.93, favorita de prova)}]
+Encontre $f$ e $a$ tais que $\displaystyle 6+\int_a^x\frac{f(t)}{t^2}\dt=2\sqrt x$ para todo $x>0$.
+
+\textbf{Derive os dois lados} (TFC1 à esquerda, tabela à direita): $\dfrac{f(x)}{x^2}=\dfrac{1}{\sqrt x}$ \;$\Rightarrow$\; $f(x)=\dfrac{x^2}{\sqrt x}=x^{3/2}$.
+
+\textbf{Faça $x=a$} (a integral zera): $6+0=2\sqrt a$ \;$\Rightarrow$\; $\sqrt a=3$ \;$\Rightarrow$\; $a=9$.
+
+\textbf{Verificação:} $\displaystyle\int_9^x\frac{t^{3/2}}{t^2}\dt=\int_9^x t^{-1/2}\dt=\big[2\sqrt t\big]_9^x=2\sqrt x-6$; somando $6$ dá $2\sqrt x$ \ok.
+\end{exemplo}
+
+\subsection{TFC2 --- calcular integrais definidas com uma primitiva}
+
+\begin{definicao}[{TFC, Parte 2}]
+Se $f$ é contínua em $[a,b]$ e $F$ é \emph{qualquer} primitiva de $f$ ($F'=f$), então
+\[
+\int_a^b f(x)\dx=F(b)-F(a)\;=\;\Big[F(x)\Big]_a^b .
+\]
+O $C$ some: $(F(b)+C)-(F(a)+C)=F(b)-F(a)$. Por isso, em integrais definidas, não se escreve $C$.
+
+\textbf{As duas partes juntas} dizem que derivar e integrar são operações inversas:
+$\dfrac{d}{dx}\displaystyle\int_a^x f(t)\dt=f(x)$ \;e\; $\displaystyle\int_a^x F'(t)\dt=F(x)-F(a)$.
+\end{definicao}
+
+\begin{metodo}[{Roteiro para $\int_a^b f(x)\dx$}]
+\begin{enumerate}[leftmargin=1.6em, itemsep=1pt]
+\item \textbf{Continuidade:} $f$ é contínua em \emph{todo} o $[a,b]$? (Denominadores, raízes, funções por partes.) Se não, o TFC2 não se aplica.
+\item \textbf{Primitiva:} classifique (tabela direta / preparação algébrica / substituição) e ache $F$.
+\item \textbf{Avaliar:} $F(b)-F(a)$, nessa ordem. Radianos. Cuidado com sinais de $\sen$/$\cos$ e com $(-1)^{\text{par}}$.
+\item \textbf{Conferir:} o sinal e a ordem de grandeza batem com o esboço? (Integrando positivo $\Rightarrow$ resultado positivo.)
+\end{enumerate}
+\end{metodo}
+
+\begin{exemplo}[{Exemplo 4.3 --- TFC2 com interpretação como diferença de áreas (5.3.21--24)}]
+\textbf{(a)} $\displaystyle\int_{-1}^{2}x^3\dx=\Big[\frac{x^4}{4}\Big]_{-1}^{2}=\frac{16}{4}-\frac{1}{4}=\frac{15}{4}$.
+
+Leitura: $x^3<0$ em $[-1,0)$ (área $\int_{-1}^0|x^3|\dx=\tfrac14$, conta negativa) e $>0$ em $(0,2]$ (área $\int_0^2x^3\dx=4$). Diferença: $4-\tfrac14=\tfrac{15}{4}$ \ok.
+
+\textbf{(b)} $\displaystyle\int_0^4(x^2-4x)\dx=\Big[\frac{x^3}{3}-2x^2\Big]_0^4=\frac{64}{3}-32=-\frac{32}{3}$.
+
+Leitura: $x^2-4x=x(x-4)\le0$ em todo $[0,4]$, então a região está inteira abaixo do eixo e a integral é $-(\text{área})$: a área geométrica é $\tfrac{32}{3}$. Um resultado \emph{positivo} aqui seria sinal de erro de conta.
+\end{exemplo}
+
+\begin{exemplo}[{Exemplo 4.4 --- função definida por partes (5.3.53)}]
+$\displaystyle\int_0^{\pi}f(x)\dx$, onde $f(x)=\begin{cases}\sen x,&0\le x<\pi/2\\ \cos x,&\pi/2\le x\le\pi\end{cases}$
+
+Separe no ponto de troca (propriedade 5) e use uma primitiva em cada pedaço:
+\begin{align*}
+\int_0^{\pi/2}\sen x\dx+\int_{\pi/2}^{\pi}\cos x\dx
+&=\Big[-\cos x\Big]_0^{\pi/2}+\Big[\sen x\Big]_{\pi/2}^{\pi}\\
+&=\big(-\cos\tfrac\pi2+\cos0\big)+\big(\sen\pi-\sen\tfrac\pi2\big)
+=(0+1)+(0-1)=0.
+\end{align*}
+Leitura: a área sob $\sen x$ em $[0,\pi/2]$ (que vale $1$) cancela exatamente a área de $\cos x$ abaixo do eixo em $[\pi/2,\pi]$ (também $1$). A função tem um salto em $\pi/2$ ($\sen\frac\pi2=1$ vs.\ $\cos\frac\pi2=0$), mas descontinuidade de salto \emph{finita} não impede a integral de existir (Teorema 3 da seção 5.2).
+\end{exemplo}
+
+\begin{exemplo}[{Exemplo 4.5 --- preparação algébrica dentro de uma definida (5.3.25--54)}]
+$\displaystyle\int_1^4\frac{2+x^2}{\sqrt x}\dx$. Pelo Exemplo 2.1, uma primitiva é $F(x)=4\sqrt x+\tfrac25x^{5/2}$.
+\[
+F(4)=4\cdot2+\tfrac25\cdot4^{5/2}=8+\tfrac25\cdot32=8+\tfrac{64}{5}=\tfrac{104}{5},\qquad
+F(1)=4+\tfrac25=\tfrac{22}{5},
+\]
+\[
+\int_1^4\frac{2+x^2}{\sqrt x}\dx=F(4)-F(1)=\tfrac{104}{5}-\tfrac{22}{5}=\tfrac{82}{5}=16{,}4 .
+\]
+Conferindo a ordem de grandeza: em $[1,4]$ o integrando vai de $3$ até $9$, então a integral (largura $3$) deve estar entre $9$ e $27$ --- $16{,}4$ está \ok. ($4^{5/2}=(\sqrt4)^5=2^5=32$: calcule expoentes fracionários pela raiz primeiro.)
+\end{exemplo}
+
+\begin{armadilha}[{O erro clássico do TFC2 (Stewart, seção 5.3)}]
+\[
+\int_{-1}^{3}\frac{1}{x^2}\dx\;\overset{?}{=}\;\Big[-\frac1x\Big]_{-1}^{3}=-\frac13-1=-\frac43 \qquad\textbf{ERRADO.}
+\]
+O integrando é positivo, então a integral não pode ser negativa. O problema: $1/x^2$ \emph{não é contínua} em $[-1,3]$ (explode em $x=0$), o TFC2 não se aplica, e essa integral \emph{não existe} (é uma integral imprópria divergente, seção 7.8). \textbf{Sempre cheque a continuidade antes de aplicar $F(b)-F(a)$.} Outras armadilhas do TFC2: calcular em graus; fazer $F(a)-F(b)$; esquecer que $(-1)^4=+1$ mas $(-1)^3=-1$.
+\end{armadilha}
+
+\subsection{Teorema da Variação Total --- a integral da taxa é a variação líquida}
+
+\begin{definicao}[{Teorema da Variação Total}]
+A integral de uma \textbf{taxa de variação} é a \textbf{variação líquida}:
+\[
+\int_a^b F'(x)\dx=F(b)-F(a).
+\]
+É o TFC2 reescrito para leitura física: se você conhece a \emph{velocidade} com que algo muda, integrando-a você recupera \emph{quanto} mudou entre $a$ e $b$ (mas não o valor absoluto $F(b)$ --- para isso precisa de $F(a)$).
+\end{definicao}
+
+\begin{definicao}[{Dicionário de interpretação (5.4.59--67) --- responda ``o que representa?'' em uma frase}]
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{5.0cm}>{\raggedright\arraybackslash}p{10.5cm}@{}}
+\toprule
+\textbf{Dado} & \textbf{A integral representa}\\
+\midrule
+$w'(t)$ taxa de crescimento de uma criança (kg/ano) & $\int_5^{10}w'(t)\dt=w(10)-w(5)$: quanto a criança ganhou de peso entre os 5 e os 10 anos (kg)\\
+$I(t)=Q'(t)$ corrente (A) & $\int_a^b I(t)\dt=Q(b)-Q(a)$: carga que passou pelo fio entre $t=a$ e $t=b$ (coulombs)\\
+$r(t)$ vazão de óleo de um tanque (gal/min) & $\int_0^{120}r(t)\dt$: galões vazados nos primeiros 120 minutos\\
+$n'(t)$ taxa de crescimento de uma colmeia (abelhas/semana), $n(0)=100$ & $100+\int_0^{15}n'(t)\dt=n(15)$: população após 15 semanas\\
+$R'(x)$ rendimento marginal & $\int_{1000}^{5000}R'(x)\dx=R(5000)-R(1000)$: aumento do rendimento ao passar de 1000 para 5000 unidades vendidas\\
+$f(x)$ inclinação de uma trilha a $x$ km do início & $\int_3^5 f(x)\dx$: ganho de altitude entre o km 3 e o km 5\\
+$h(t)$ frequência cardíaca (batimentos/min) & $\int_0^{60}h(t)\dt$: número total de batimentos em 60 minutos\\
+$\rho(x)$ densidade linear de uma barra (kg/m) & $\int_a^b\rho(x)\dx=m(b)-m(a)$: massa do pedaço entre $x=a$ e $x=b$ (kg)\\
+$C'(x)$ custo marginal (R\$/m) & $\int_{2000}^{4000}C'(x)\dx$: aumento do custo ao subir a produção de 2000 para 4000 m\\
+\bottomrule
+\end{tabular}
+
+\smallskip
+\textbf{Unidades:} $[\int_a^b f\dx]=[f]\cdot[x]$. Se $f$ está em newtons e $x$ em metros, a integral está em N$\cdot$m $=$ J (trabalho).
+\end{definicao}
+
+\subsection{Cinemática: deslocamento $\ne$ distância}
+
+\begin{definicao}[{Deslocamento e distância}]
+Para $v(t)=s'(t)$ em $[t_1,t_2]$:
+\[
+\text{deslocamento}=\int_{t_1}^{t_2}v(t)\dt=s(t_2)-s(t_1),
+\qquad
+\text{distância percorrida}=\int_{t_1}^{t_2}|v(t)|\dt .
+\]
+Para integrar $|v|$: ache os zeros de $v$, separe o intervalo, troque o sinal nos pedaços onde $v<0$. Se $v\ge0$ em todo o intervalo, os dois coincidem.
+\begin{center}
+\begin{tikzpicture}[xscale=1.6, yscale=1.1, >=Stealth]
+  \def\v#1{(1.1*sin(1.5*#1 r) + 0.35)}
+  \fill[verde!25, domain=0.2:2.31, samples=30] plot (\x,{\v{\x}}) -- (2.31,0) -- (0.2,0) -- cycle;
+  \fill[vermelho!25, domain=2.31:3.973, samples=30] plot (\x,{\v{\x}}) -- (3.973,0) -- (2.31,0) -- cycle;
+  \fill[verde!25, domain=3.973:5.0, samples=30] plot (\x,{\v{\x}}) -- (5.0,0) -- (3.973,0) -- cycle;
+  \draw[thick, azul, domain=0.2:5.0, samples=60] plot (\x,{\v{\x}});
+  \draw[->] (0,0) -- (5.5,0) node[right] {$t$};
+  \draw[->] (0,-1.1) -- (0,1.8) node[above] {$v$};
+  \node at (1.1,0.45) {$A_1$}; \node at (3.15,-0.3) {$A_2$}; \node at (4.6,0.25) {$A_3$};
+  \draw (0.2,0.05)--(0.2,-0.05) node[below] {$t_1$};
+  \draw (5.0,0.05)--(5.0,-0.05) node[below] {$t_2$};
+  \node[font=\small, align=left] at (8.2,0.8) {deslocamento $=A_1-A_2+A_3$\\[2pt] distância $=A_1+A_2+A_3$};
+\end{tikzpicture}
+\end{center}
+\end{definicao}
+
+\begin{exemplo}[{Exemplo 4.6 --- da aceleração à distância (questão 5.4.72)}]
+$a(t)=2t+3$ (m/s$^2$), $v(0)=-4$ m/s, $0\le t\le3$. Encontre (a) $v(t)$ e (b) a distância percorrida.
+
+\textbf{(a)} $v(t)=\displaystyle\int(2t+3)\dt=t^2+3t+C$; $v(0)=C=-4$ \;$\Rightarrow$\; $v(t)=t^2+3t-4=(t+4)(t-1)$.
+
+\textbf{(b) Sinal de $v$:} $v<0$ em $[0,1)$ (partícula indo para a esquerda) e $v>0$ em $(1,3]$. Primitiva de $v$: $s(t)=\dfrac{t^3}{3}+\dfrac{3t^2}{2}-4t$ (posição com $s(0)=0$).
+\[
+\int_0^1 v\dt=s(1)-s(0)=\frac13+\frac32-4=\frac{2+9-24}{6}=-\frac{13}{6},
+\]
+\[
+\int_1^3 v\dt=s(3)-s(1)=\Big(9+\frac{27}{2}-12\Big)-\Big(-\frac{13}{6}\Big)=\frac{21}{2}+\frac{13}{6}=\frac{63+13}{6}=\frac{38}{3}.
+\]
+\[
+\text{distância}=\int_0^3|v|\dt=\frac{13}{6}+\frac{38}{3}=\frac{13+76}{6}=\frac{89}{6}\approx14{,}83\ \text{m}.
+\]
+\textbf{Comparando com o deslocamento:} $\displaystyle\int_0^3 v\dt=-\frac{13}{6}+\frac{38}{3}=\frac{63}{6}=\frac{21}{2}=10{,}5$ m. A partícula anda $2{,}17$ m para a esquerda, para em $t=1$, e anda $12{,}67$ m para a direita: termina $10{,}5$ m à direita de onde começou, tendo percorrido $14{,}83$ m.
+
+\textbf{Verificação:} $s'(t)=t^2+3t-4=v(t)$ \ok; $v'(t)=2t+3=a(t)$ \ok.
+\end{exemplo}
+
+\begin{exemplo}[{Exemplo 4.7 --- vazão e densidade (questões 5.4.74 e 5.4.73)}]
+\textbf{(a)} Água escoa de um tanque a $r(t)=200-4t$ L/min, $0\le t\le50$. Quanto escoa nos primeiros 10 minutos?
+\[
+\int_0^{10}(200-4t)\dt=\Big[200t-2t^2\Big]_0^{10}=2000-200=1800\ \text{L}.
+\]
+Geometria: $r$ é uma reta de $200$ a $160$ em $[0,10]$: trapézio $\frac{200+160}{2}\cdot10=1800$ \ok.
+
+\textbf{(b)} Barra de 4 m com densidade $\rho(x)=9+2\sqrt x$ kg/m. Massa total:
+\[
+\int_0^4\big(9+2x^{1/2}\big)\dx=\Big[9x+2\cdot\frac{x^{3/2}}{3/2}\Big]_0^4=\Big[9x+\frac43x^{3/2}\Big]_0^4=36+\frac43\cdot8=36+\frac{32}{3}=\frac{140}{3}\approx46{,}7\ \text{kg}.
+\]
+Unidade: (kg/m)$\cdot$m $=$ kg \ok. Ordem de grandeza: $\rho$ vai de $9$ a $13$, largura $4$ $\Rightarrow$ entre $36$ e $52$ \ok.
+\end{exemplo}
+
+\begin{exercicios}[{Exercícios similares --- Parte 4}]
+\begin{enumerate}[leftmargin=1.6em, itemsep=2pt, label=\textbf{4.\arabic*}]
+\item Derive: (a) $g(x)=\displaystyle\int_0^x\sqrt{t+t^3}\dt$; \;(b) $h(x)=\displaystyle\int_1^{e^x}\ln t\dt$; \;(c) $y=\displaystyle\int_{\cos x}^{\sen x}\frac{1}{1+t^2}\dt$.
+\item Encontre $f$ e $a$ tais que $\displaystyle 3+\int_a^x f(t)\dt=x^3$ para todo $x$.
+\item Calcule e interprete como área ou diferença de áreas: $\displaystyle\int_0^2(2x-x^3)\dx$.
+\item Calcule $\displaystyle\int_{-2}^{2}f(x)\dx$ para $f(x)=\begin{cases}2,&-2\le x\le0\\4-x^2,&0<x\le2\end{cases}$
+\item $v(t)=t^2-2t-3$ m/s em $[2,4]$: deslocamento e distância (5.4.70).
+\item $v(t)=3t-5$ m/s em $[0,3]$: deslocamento e distância (5.4.69).
+\item $a(t)=t+4$, $v(0)=5$, $0\le t\le10$: $v(t)$ e distância (5.4.71). Por que aqui distância $=$ deslocamento?
+\item Se $r(t)$ (L/min) é a taxa com que água \emph{entra} em um tanque que tem $25\,000$ L em $t=0$, o que representa $25\,000+\displaystyle\int_0^{4}r(t)\dt$? E se $r$ ficar negativa em parte do intervalo?
+\item O que está errado em $\displaystyle\int_{-2}^{1}\frac{1}{x^4}\dx=\Big[-\frac{1}{3x^3}\Big]_{-2}^{1}=-\frac13-\frac{1}{24}=-\frac{3}{8}$?
+\end{enumerate}
+\end{exercicios}

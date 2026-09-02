@@ -1,0 +1,130 @@
+\section[Aplicações (6.1--6.3)]{Aplicações (6.1--6.3): toda fórmula é uma soma de Riemann}
+
+O capítulo 6 não tem técnica nova. Cada fórmula nasce do mesmo procedimento da Parte 3: \textbf{fatiar} a região ou o sólido em $n$ pedaços de largura $\Delta x$, aproximar cada pedaço por uma figura simples, \textbf{somar} e passar ao \textbf{limite}. Se você souber montar a soma de Riemann, a fórmula sai sozinha --- e é isso que a professora pede em 7.3/7.4 (``fazer a modelagem e escrever a soma de Riemann associada'').
+
+\subsection{Área entre curvas (6.1)}
+
+\begin{definicao}[{Área entre $y=f(x)$ (em cima) e $y=g(x)$ (embaixo), $a\le x\le b$}]
+Fatia $i$: retângulo de base $\Delta x$ e altura $f(x_i^*)-g(x_i^*)$ (topo menos base).
+\[
+A=\lim_{n\to\infty}\sum_{i=1}^n\big[f(x_i^*)-g(x_i^*)\big]\Delta x=\int_a^b\big[f(x)-g(x)\big]\dx .
+\]
+Se as curvas se cruzam dentro do intervalo, separe nos cruzamentos: $A=\int_a^b|f(x)-g(x)|\dx$. Se a região é mais fácil de descrever em $y$: $A=\displaystyle\int_c^d\big[x_{\text{dir}}(y)-x_{\text{esq}}(y)\big]\,dy$ (direita menos esquerda).
+\end{definicao}
+
+\begin{metodo}[{Roteiro}]
+(1) Esboce. (2) Interseções: resolva $f(x)=g(x)$. (3) Quem está em cima? Teste um ponto entre as interseções. (4) Se trocam de posição, separe. (5) Integre. (6) Área tem que dar positiva.
+\end{metodo}
+
+\begin{exemplo}[{Exemplo 6.1 --- parábola e reta}]
+Área entre $y=x^2$ e $y=x+2$.
+
+\textbf{Interseções:} $x^2=x+2\Rightarrow x^2-x-2=0\Rightarrow(x-2)(x+1)=0\Rightarrow x=-1,\ 2$.
+
+\textbf{Quem está em cima:} em $x=0$, reta $=2>0=$ parábola. Topo: $x+2$; base: $x^2$.
+\begin{align*}
+A=\int_{-1}^{2}\big[(x+2)-x^2\big]\dx&=\Big[\frac{x^2}{2}+2x-\frac{x^3}{3}\Big]_{-1}^{2}
+=\Big(2+4-\frac83\Big)-\Big(\frac12-2+\frac13\Big)\\
+&=\frac{10}{3}-\Big(-\frac76\Big)=\frac{20}{6}+\frac76=\frac{27}{6}=\frac92 .
+\end{align*}
+\textbf{Soma de Riemann associada:} $\displaystyle\lim_{n\to\infty}\sum_{i=1}^n\big[(x_i+2)-x_i^2\big]\Delta x$ com $\Delta x=\frac3n$, $x_i=-1+\frac{3i}{n}$.
+\end{exemplo}
+
+\begin{exemplo}[{Exemplo 6.2 --- curvas que se cruzam}]
+Área entre $y=\sen x$ e $y=\cos x$ de $x=0$ a $x=\pi/2$. Cruzam em $\tg x=1\Rightarrow x=\pi/4$. Em $[0,\pi/4]$ o cosseno está em cima; em $[\pi/4,\pi/2]$ o seno.
+\begin{align*}
+A&=\int_0^{\pi/4}(\cos x-\sen x)\dx+\int_{\pi/4}^{\pi/2}(\sen x-\cos x)\dx\\
+&=\Big[\sen x+\cos x\Big]_0^{\pi/4}+\Big[-\cos x-\sen x\Big]_{\pi/4}^{\pi/2}\\
+&=\Big(\frac{\sqrt2}{2}+\frac{\sqrt2}{2}-0-1\Big)+\Big(-0-1+\frac{\sqrt2}{2}+\frac{\sqrt2}{2}\Big)\\
+&=(\sqrt2-1)+(\sqrt2-1)=2\sqrt2-2 .
+\end{align*}
+Se você integrasse $\cos x-\sen x$ direto em $[0,\pi/2]$ daria $0$ --- a área ``negativa'' cancelaria a positiva. Separar nos cruzamentos não é opcional.
+\end{exemplo}
+
+\subsection{Volumes por fatiamento: discos e anéis (6.2)}
+
+\begin{definicao}[{Volume por seções transversais}]
+Se a seção transversal do sólido em $x$ tem área $A(x)$, a fatia $i$ é um ``cilindro'' fino de base $A(x_i^*)$ e espessura $\Delta x$:
+\[
+V=\lim_{n\to\infty}\sum_{i=1}^n A(x_i^*)\Delta x=\int_a^b A(x)\dx .
+\]
+\textbf{Disco} (girar a região sob $y=f(x)$ em torno do eixo $x$): $A(x)=\pi\big[f(x)\big]^2$.
+
+\textbf{Anel} (região entre $f$ em cima e $g$ embaixo, eixo $x$): $A(x)=\pi\big([f(x)]^2-[g(x)]^2\big)=\pi(R^2-r^2)$.
+
+\textbf{Eixo deslocado} $y=k$: raios medidos até a reta, $R=|f(x)-k|$, $r=|g(x)-k|$. Girar em torno do eixo $y$ com região descrita em $y$: $V=\int_c^d\pi[x(y)]^2\,dy$.
+\end{definicao}
+
+\begin{exemplo}[{Exemplo 6.3 --- disco}]
+Região sob $y=\sqrt x$, $0\le x\le4$, girada em torno do eixo $x$.
+\[
+V=\int_0^4\pi\big(\sqrt x\big)^2\dx=\pi\int_0^4x\dx=\pi\Big[\frac{x^2}{2}\Big]_0^4=8\pi .
+\]
+Cada fatia é um disco de raio $\sqrt{x_i^*}$ e espessura $\Delta x$: volume $\pi(\sqrt{x_i^*})^2\Delta x$.
+\end{exemplo}
+
+\begin{exemplo}[{Exemplo 6.4 --- anel, eixo $x$ e eixo deslocado}]
+Região entre $y=x$ e $y=x^2$ ($0\le x\le1$; em cima está $y=x$).
+
+\textbf{(a) Em torno do eixo $x$:} $R=x$, $r=x^2$:
+\[
+V=\pi\int_0^1\big(x^2-x^4\big)\dx=\pi\Big[\frac{x^3}{3}-\frac{x^5}{5}\Big]_0^1=\pi\Big(\frac13-\frac15\Big)=\frac{2\pi}{15}.
+\]
+\textbf{(b) Em torno de $y=2$:} agora o raio externo é a distância da curva \emph{de baixo} até $y=2$: $R=2-x^2$, $r=2-x$.
+\begin{align*}
+V&=\pi\int_0^1\big[(2-x^2)^2-(2-x)^2\big]\dx=\pi\int_0^1\big[(4-4x^2+x^4)-(4-4x+x^2)\big]\dx\\
+&=\pi\int_0^1\big(x^4-5x^2+4x\big)\dx
+=\pi\Big[\frac{x^5}{5}-\frac{5x^3}{3}+2x^2\Big]_0^1=\pi\Big(\frac15-\frac53+2\Big)=\pi\cdot\frac{3-25+30}{15}=\frac{8\pi}{15}.
+\end{align*}
+Erro comum: usar $R=x$, $r=x^2$ em (b). O raio é sempre a distância até o \emph{eixo de rotação}, não até o eixo $x$.
+\end{exemplo}
+
+\subsection{Cascas cilíndricas (6.3)}
+
+\begin{definicao}[{Volume por cascas --- girar em torno do eixo $y$ a região sob $y=f(x)$, $0\le a\le x\le b$}]
+Fatia $i$: ao girar o retângulo de base $\Delta x$ e altura $f(x_i^*)$ em torno do eixo $y$, obtém-se uma casca cilíndrica de raio $x_i^*$, altura $f(x_i^*)$ e espessura $\Delta x$. ``Desenrolada'', é uma placa de comprimento $2\pi x_i^*$ (circunferência), altura $f(x_i^*)$ e espessura $\Delta x$:
+\[
+V=\lim_{n\to\infty}\sum_{i=1}^n 2\pi x_i^*\,f(x_i^*)\,\Delta x=\int_a^b 2\pi x\,f(x)\dx .
+\]
+Região entre $f$ (cima) e $g$ (baixo): altura $f(x)-g(x)$. Eixo $x=k$: raio $|x-k|$.
+
+\textbf{Quando usar:} rotação em torno do eixo $y$ (ou de uma reta vertical) com a região dada por $y=f(x)$ --- cascas evitam isolar $x$ em função de $y$. Rotação em torno do eixo $x$ com $y=f(x)$: discos/anéis. Regra prática: fatias \emph{perpendiculares} ao eixo de rotação $\to$ discos/anéis; fatias \emph{paralelas} $\to$ cascas.
+\end{definicao}
+
+\begin{exemplo}[{Exemplo 6.5 --- o exemplo clássico das cascas (Stewart, 6.3, Exemplo 1)}]
+Região sob $y=2x^2-x^3$ (de $x=0$ a $x=2$, onde $y=0$) girada em torno do eixo $y$. Isolar $x$ em função de $y$ aqui seria inviável $\Rightarrow$ cascas.
+\begin{align*}
+V&=\int_0^2 2\pi x\big(2x^2-x^3\big)\dx=2\pi\int_0^2\big(2x^3-x^4\big)\dx\\
+&=2\pi\Big[\frac{x^4}{2}-\frac{x^5}{5}\Big]_0^2=2\pi\Big(8-\frac{32}{5}\Big)=2\pi\cdot\frac85=\frac{16\pi}{5}.
+\end{align*}
+\end{exemplo}
+
+\begin{exemplo}[{Exemplo 6.6 --- os dois métodos dão o mesmo volume}]
+Região sob $y=x^2$, $0\le x\le1$, girada em torno do eixo $y$.
+
+\textbf{Cascas:} $V=\displaystyle\int_0^1 2\pi x\cdot x^2\dx=2\pi\Big[\frac{x^4}{4}\Big]_0^1=\frac{\pi}{2}$.
+
+\textbf{Anéis (fatiando em $y$):} em altura $y$, o anel vai de $x=\sqrt y$ (curva) até $x=1$ (borda): $R=1$, $r=\sqrt y$.
+$V=\displaystyle\int_0^1\pi\big(1^2-(\sqrt y)^2\big)\,dy=\pi\int_0^1(1-y)\,dy=\pi\Big[y-\frac{y^2}{2}\Big]_0^1=\frac{\pi}{2}$ \ok.
+\end{exemplo}
+
+\begin{armadilha}[{Capítulo 6}]
+\begin{itemize}[leftmargin=1.4em, itemsep=1pt]
+\item Área entre curvas: integrar $f-g$ sem checar quem está em cima; não separar nos cruzamentos.
+\item Volumes: elevar ao quadrado \emph{antes} de subtrair ($\pi(R-r)^2$ é errado; é $\pi(R^2-r^2)$).
+\item Eixo deslocado: raio $=$ distância até o eixo de rotação.
+\item Cascas: esquecer o fator $2\pi x$ (o raio da casca) ou usar $x$ quando o eixo é $x=k$.
+\item Sempre esboce a região e uma fatia típica: a fórmula deve ser \emph{lida} do desenho, não lembrada.
+\end{itemize}
+\end{armadilha}
+
+\begin{exercicios}[{Exercícios similares --- Parte 6}]
+\begin{enumerate}[leftmargin=1.6em, itemsep=2pt, label=\textbf{6.\arabic*}]
+\item Área entre $y=x^2$ e $y=2x$.
+\item Área entre $y=x^3$ e $y=x$ (use simetria).
+\item Área da região limitada por $x=2y-y^2$ e o eixo $y$ (integre em $y$).
+\item Volume: região sob $y=1/x$, $1\le x\le2$, girada em torno do eixo $x$.
+\item Volume: região entre $y=x$ e $y=x^2$ girada em torno do eixo $y$ (cascas).
+\item Volume: região sob $y=\sqrt x$, $0\le x\le4$, girada em torno do eixo $y$ --- por cascas e por anéis.
+\end{enumerate}
+\end{exercicios}

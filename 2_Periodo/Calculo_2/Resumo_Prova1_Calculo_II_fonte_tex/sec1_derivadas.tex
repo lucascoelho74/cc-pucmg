@@ -1,0 +1,139 @@
+\section{Derivadas: interpretar, não decorar}
+
+Tudo no capítulo 5 é construído sobre uma única frase: \emph{integrar é desfazer uma derivada}. Se a derivada é só uma tabela decorada, a integral vira uma segunda tabela decorada --- e as questões conceituais (V/F, ``o que representa'', ``interprete'') ficam impossíveis. Esta parte fixa as leituras que você vai usar em todas as outras.
+
+\subsection{As três leituras de $f'(a)$}
+
+\begin{definicao}[{Definição}]
+\[
+f'(a)\;=\;\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}
+\]
+O quociente é uma \emph{taxa média} (variação de $f$ dividida pela variação de $x$). O limite torna a taxa \emph{instantânea}.
+\end{definicao}
+
+\begin{enumerate}[leftmargin=1.6em, itemsep=3pt]
+\item \textbf{Taxa de variação.} $f'(a)$ é ``quanto $f$ varia por unidade de $x$'' quando $x = a$. Unidade: $\dfrac{[\,f\,]}{[\,x\,]}$. Se $s$ é posição em metros e $t$ em segundos, $s'(t)$ está em m/s.
+\item \textbf{Inclinação.} $f'(a)$ é o coeficiente angular da reta tangente ao gráfico em $(a, f(a))$:
+$\;y = f(a) + f'(a)(x-a)$.
+\item \textbf{Fator de aproximação linear} --- a leitura que mais importa para integrais:
+\[
+f(a+h)\approx f(a) + f'(a)\,h \qquad\Longleftrightarrow\qquad \Delta f \approx f'(a)\,\Delta x .
+\]
+Em palavras: num pedaço pequeno $\Delta x$, a função varia aproximadamente \emph{taxa} $\times$ \emph{largura do pedaço}. Uma soma de Riemann (Parte 3) é exatamente a soma desses pedaços: $\sum f'(x_i^*)\,\Delta x$ acumula a variação total. O Teorema da Variação Total (Parte 4) diz que, no limite, isso é exato: $\int_a^b f'(x)\dx = f(b)-f(a)$.
+\end{enumerate}
+
+\begin{definicao}[{Dicionário de derivadas em enunciados (aparece em 5.4 e nas questões de interpretação)}]
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{4.9cm}>{\raggedright\arraybackslash}p{7.3cm}>{\raggedright\arraybackslash}p{3.1cm}@{}}
+\toprule
+\textbf{Função} & \textbf{Derivada} & \textbf{Unidade da derivada}\\
+\midrule
+$s(t)$ posição (m) & $s'(t)=v(t)$ velocidade; $v'(t)=a(t)$ aceleração & m/s; m/s$^2$\\
+$C(x)$ custo de produzir $x$ unidades (R\$) & $C'(x)$ custo marginal $\approx$ custo da próxima unidade & R\$/unidade\\
+$m(x)$ massa da barra até o ponto $x$ (kg) & $m'(x)=\rho(x)$ densidade linear & kg/m\\
+$V(t)$ volume no tanque (L) & $V'(t)$ vazão líquida (entra $-$ sai) & L/min\\
+$Q(t)$ carga (C) & $Q'(t)=I(t)$ corrente & A $=$ C/s\\
+$n(t)$ população & $n'(t)$ taxa de crescimento & indivíduos/semana\\
+$w(t)$ peso de uma criança (kg) & $w'(t)$ taxa de crescimento & kg/ano\\
+\bottomrule
+\end{tabular}
+
+\smallskip
+Regra: a derivada de ``quantidade acumulada'' é ``taxa''. A integral faz o caminho de volta: a integral da taxa é a variação da quantidade acumulada (Parte 4).
+\end{definicao}
+
+\subsection{O que o sinal e o gráfico de $f'$ dizem sobre $f$}
+
+\begin{itemize}[leftmargin=1.4em, itemsep=2pt]
+\item $f'>0$ em um intervalo $\Rightarrow$ $f$ crescente ali; $f'<0$ $\Rightarrow$ decrescente. (O sinal de $f'$ fala da \emph{monotonia} de $f$, não do sinal de $f$.)
+\item $f'(c)=0$ ou $f'(c)$ não existe $\Rightarrow$ $c$ é ponto crítico: \emph{candidato} a extremo, sem garantia ($f(x)=x^3$ em $c=0$).
+\item $f''>0$ $\Rightarrow$ concavidade para cima ($f'$ crescente); $f''<0$ $\Rightarrow$ para baixo.
+\item Derivável em $a$ $\Rightarrow$ contínua em $a$ $\Rightarrow$ $f(a)$ existe, ou seja, $a\in \mathrm{Dom}\,f$. A recíproca falha: $|x|$ é contínua em $0$ e não é derivável em $0$.
+\end{itemize}
+
+\begin{armadilha}[{Verdadeiro ou falso --- o estilo de questão conceitual da professora}]
+\begin{itemize}[leftmargin=1.4em, itemsep=2pt]
+\item ``Se $f'$ é crescente, então $f$ é crescente.'' \textbf{Falso.} $f'$ crescente é concavidade para cima. $f(x)=x^2$: $f'(x)=2x$ é crescente, mas $f$ decresce em $x<0$.
+\item ``Se $f$ é decrescente, então $f'$ é decrescente.'' \textbf{Falso.} $f(x)=1/x$ em $(0,\infty)$ decresce, mas $f'(x)=-1/x^2$ \emph{cresce}.
+\item ``Se $f'(a)=g'(a)$, então $f(a)=g(a)$.'' \textbf{Falso.} $f(x)=x^2$ e $g(x)=x^2+5$ têm a mesma derivada em todo ponto.
+\item ``Se $F'=G'$ em um \emph{intervalo}, então $F-G$ é constante.'' \textbf{Verdadeiro} --- é o teorema das primitivas (Parte 2). Sem a palavra \emph{intervalo}, é falso.
+\item ``Se $f$ é derivável em $a$, então é contínua em $a$.'' \textbf{Verdadeiro.} ``Se é contínua em $a$, então é derivável em $a$.'' \textbf{Falso} ($|x|$).
+\item ``Se $f$ é contínua em $a$, então $a$ pertence ao domínio de $f$.'' \textbf{Verdadeiro}: continuidade exige que $f(a)$ exista.
+\item ``Se $f'(c)=0$, então $f$ tem máximo ou mínimo em $c$.'' \textbf{Falso} ($x^3$ em $0$).
+\end{itemize}
+Método para V/F: tente um contraexemplo simples ($x^2$, $x^3$, $1/x$, $|x|$, uma constante somada). Se nenhum funciona, procure o teorema que garante a afirmação.
+\end{armadilha}
+
+\subsection{A tabela de derivadas lida ao contrário \emph{é} a tabela de integrais}
+
+\begin{definicao}[{Uma tabela só, lida nos dois sentidos}]
+\[
+\frac{d}{dx}\big[F(x)\big] = f(x)
+\qquad\Longleftrightarrow\qquad
+\int f(x)\dx = F(x) + C
+\]
+\small
+\renewcommand{\arraystretch}{1.55}
+\begin{tabular}{@{}lcl@{\qquad}lcl@{}}
+\toprule
+$F(x)$ & $\xrightarrow{\;d/dx\;}$ & $f(x)$ & $F(x)$ & $\xrightarrow{\;d/dx\;}$ & $f(x)$\\
+\midrule
+$\dfrac{x^{n+1}}{n+1}$ ($n\neq -1$) & & $x^n$ & $\tg x$ & & $\sec^2 x$\\[6pt]
+$\ln|x|$ & & $\dfrac1x$ & $-\cotg x$ & & $\cossec^2 x$\\[6pt]
+$e^x$ & & $e^x$ & $\sec x$ & & $\sec x\,\tg x$\\[4pt]
+$\dfrac{a^x}{\ln a}$ & & $a^x$ & $-\cossec x$ & & $\cossec x\,\cotg x$\\[6pt]
+$\sen x$ & & $\cos x$ & $\arctg x$ & & $\dfrac{1}{1+x^2}$\\[6pt]
+$-\cos x$ & & $\sen x$ & $\arcsen x$ & & $\dfrac{1}{\sqrt{1-x^2}}$\\[6pt]
+$\senh x$ & & $\cosh x$ & $\cosh x$ & & $\senh x$\\
+\bottomrule
+\end{tabular}
+
+\smallskip
+Cada linha da coluna ``integrais'' não é um fato novo: é uma derivada que você já sabe, lida da direita para a esquerda. Consequência prática: \textbf{toda integral pode ser conferida derivando o resultado} --- faça isso na prova, leva 10 segundos.
+\end{definicao}
+
+Dois pontos onde ``decorar'' falha e ``ler'' salva:
+
+\begin{itemize}[leftmargin=1.4em, itemsep=2pt]
+\item \textbf{Por que $\int \sen x\dx = -\cos x + C$?} Porque $(-\cos x)' = -(-\sen x) = \sen x$. O sinal de menos vem da derivada do cosseno, não de uma convenção. Se você lembrar que $(\cos x)'=-\sen x$, nunca erra o sinal.
+\item \textbf{Por que $x^{-1}$ é a exceção da regra da potência?} A fórmula $\frac{x^{n+1}}{n+1}$ dividiria por zero. A primitiva é $\ln|x|$ porque $(\ln|x|)' = 1/x$ para todo $x\neq 0$.
+\end{itemize}
+
+\subsection{Regra da cadeia lida ao contrário (ponte para a substituição)}
+
+\[
+\frac{d}{dx}\Big[F\big(g(x)\big)\Big] = F'\big(g(x)\big)\,g'(x) = f\big(g(x)\big)\,g'(x)
+\qquad\Longrightarrow\qquad
+\int f\big(g(x)\big)\,g'(x)\dx = F\big(g(x)\big)+C .
+\]
+Exemplo: $\dfrac{d}{dx}\sen(x^4+2) = \cos(x^4+2)\cdot 4x^3$; logo $\displaystyle\int x^3\cos(x^4+2)\dx = \tfrac14\sen(x^4+2)+C$. A Parte 5 é só isto, sistematizado.
+
+\subsection{Derivada de integral, integral de derivada --- três expressões que parecem iguais}
+
+\begin{exemplo}[{Exemplo 1.1 --- questão 8 da revisão do capítulo 5, adaptada}]
+Compare:
+\[
+\text{(a) } \int_0^1 \frac{d}{dx}\Big[e^{\arctg x}\Big]\dx
+\qquad
+\text{(b) } \frac{d}{dx}\int_0^1 e^{\arctg x}\dx
+\qquad
+\text{(c) } \frac{d}{dx}\int_0^x e^{\arctg t}\dt
+\]
+\textbf{(a)} Integral de uma derivada em $[0,1]$ = variação líquida (TFC2): $e^{\arctg 1}-e^{\arctg 0} = e^{\pi/4}-e^{0} = e^{\pi/4}-1$. É um \emph{número}.
+
+\textbf{(b)} $\int_0^1 e^{\arctg x}\dx$ tem limites constantes: é um número (uma área). Derivada de constante: \textbf{0}.
+
+\textbf{(c)} O limite superior é a variável $x$: a integral é uma \emph{função} de $x$ (``área até $x$''), e o TFC1 dá $e^{\arctg x}$.
+
+\medskip
+Regra de leitura: \textbf{olhe os limites}. Constantes $\to$ número (derivada 0). Variável em cima $\to$ função, e derivar devolve o integrando. Derivada \emph{dentro} da integral $\to$ variação líquida $F(b)-F(a)$.
+\end{exemplo}
+
+\begin{exercicios}[{Exercícios similares --- Parte 1}]
+\begin{enumerate}[leftmargin=1.6em, itemsep=2pt, label=\textbf{1.\arabic*}]
+\item Verdadeiro ou falso, com justificativa: (a) se $f'(x)>0$ para todo $x$, então $f(x)>0$ para todo $x$; (b) se $f$ e $g$ são deriváveis e $f(x)-g(x)=3$ para todo $x$, então $f'=g'$; (c) se $f$ não é derivável em $a$, então $f$ não é contínua em $a$.
+\item Se $V(t)$ é o volume de água (litros) em um tanque no instante $t$ (min), o que significa $V'(3)=-12$? Qual a unidade?
+\item Calcule (a) $\displaystyle\int_0^{\pi}\frac{d}{dx}\big[x\sen x\big]\dx$; \;(b) $\displaystyle\frac{d}{dx}\int_0^{\pi} x\sen x\dx$; \;(c) $\displaystyle\frac{d}{dx}\int_0^{x} t\sen t\dt$.
+\item Sem calcular a integral, diga se $\displaystyle\int_1^2 \ln x\dx$ é positivo ou negativo e por quê.
+\end{enumerate}
+\end{exercicios}

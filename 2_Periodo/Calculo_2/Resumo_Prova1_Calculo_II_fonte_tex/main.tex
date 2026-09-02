@@ -1,0 +1,97 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo}
+\usepackage[scaled=0.92]{helvet}
+\usepackage{babel}
+\babelprovide[import, main]{portuguese}
+\usepackage[margin=2cm,top=2.3cm,bottom=2.2cm]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,decorations.pathreplacing,patterns}
+\usepackage[most]{tcolorbox}
+\usepackage{booktabs,array,multicol,enumitem,fancyhdr,microtype}
+\usepackage{cancel}
+\usepackage[hidelinks]{hyperref}
+
+\emergencystretch=1.5em
+\tolerance=1500
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt plus 1pt}
+
+% ---------- cores ----------
+\definecolor{azul}{HTML}{1F4E79}
+\definecolor{azulclaro}{HTML}{EAF1F8}
+\definecolor{verde}{HTML}{1B6E4A}
+\definecolor{verdeclaro}{HTML}{E8F4EE}
+\definecolor{vermelho}{HTML}{A3282C}
+\definecolor{vermelhoclaro}{HTML}{FBECEC}
+\definecolor{roxo}{HTML}{5B3C88}
+\definecolor{roxoclaro}{HTML}{F0EBF7}
+\definecolor{cinza}{HTML}{555555}
+\definecolor{cinzaclaro}{HTML}{F3F3F3}
+\definecolor{laranja}{HTML}{B5651D}
+\definecolor{laranjaclaro}{HTML}{FCF1E6}
+\definecolor{amarelo}{HTML}{8A6D00}
+\definecolor{amareloclaro}{HTML}{FFF8DC}
+
+% cores dos símbolos da soma de Riemann (usadas na "anatomia")
+\definecolor{cLim}{HTML}{5B3C88}
+\definecolor{cSum}{HTML}{B5651D}
+\definecolor{cF}{HTML}{1B6E4A}
+\definecolor{cX}{HTML}{A3282C}
+\definecolor{cDx}{HTML}{1F4E79}
+
+% ---------- macros ----------
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\tg}{tg}
+\DeclareMathOperator{\cotg}{cotg}
+\DeclareMathOperator{\cossec}{cossec}
+\DeclareMathOperator{\arctg}{arctg}
+\DeclareMathOperator{\arcsen}{arcsen}
+\DeclareMathOperator{\senh}{senh}
+\newcommand{\dx}{\,dx}
+\newcommand{\dt}{\,dt}
+\newcommand{\du}{\,du}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\ok}{\textcolor{verde}{\checkmark}}
+\usepackage{pifont}\newcommand{\bad}{\textcolor{vermelho}{\ding{55}}}
+\newcommand{\eval}[2]{\Big|_{#1}^{#2}}
+
+% ---------- caixas ----------
+\tcbset{
+  base/.style={enhanced, breakable, boxrule=0.6pt, arc=2pt, left=6pt, right=6pt, top=4pt, bottom=4pt,
+               fonttitle=\bfseries\sffamily, before skip=6pt, after skip=8pt},
+}
+\newtcolorbox{definicao}[1][]{base, colback=azulclaro, colframe=azul, title={#1}}
+\newtcolorbox{metodo}[1][]{base, colback=verdeclaro, colframe=verde, title={#1}}
+\newtcolorbox{armadilha}[1][Armadilha de prova]{base, colback=vermelhoclaro, colframe=vermelho, title={#1}}
+\newtcolorbox{geo}[1][Interpretação geométrica]{base, colback=roxoclaro, colframe=roxo, title={#1}}
+\newtcolorbox{exemplo}[1][]{base, colback=cinzaclaro, colframe=cinza, title={#1}}
+\newtcolorbox{exercicios}[1][Exercícios similares]{base, colback=amareloclaro, colframe=amarelo, title={#1}}
+\newtcolorbox{dica}[1][Na prova]{base, colback=laranjaclaro, colframe=laranja, title={#1}}
+
+% ---------- cabeçalho ----------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\small Cálculo II --- Resumo para a Prova 1}
+\fancyhead[R]{\sffamily\small\nouppercase{\leftmark}}
+\fancyfoot[C]{\sffamily\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1}
+
+\begin{document}
+\input{capa}
+\input{sec0_escopo}
+\input{sec1_derivadas}
+\input{sec2_primitivas}
+\input{sec3_riemann}
+\input{sec4_tfc}
+\input{sec5_substituicao}
+\input{sec6_aplicacoes}
+\input{sec7_checklist}
+\input{sec8_gabarito}
+\end{document}

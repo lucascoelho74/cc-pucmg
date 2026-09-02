@@ -1,0 +1,161 @@
+\section{Primitivas e integrais indefinidas (4.9 e 5.4)}
+
+\subsection{Definição e o teorema da constante}
+
+\begin{definicao}[{Primitiva}]
+$F$ é uma \textbf{primitiva} de $f$ em um intervalo $I$ se $F'(x)=f(x)$ para todo $x\in I$.
+
+\textbf{Teorema.} Se $F$ é uma primitiva de $f$ em um \emph{intervalo} $I$, então a primitiva mais geral de $f$ em $I$ é
+\[
+F(x)+C,\qquad C\in\R .
+\]
+\emph{Por quê:} se $G$ também é primitiva, então $(G-F)'=G'-F'=f-f=0$ em $I$; uma função com derivada zero em um intervalo é constante (corolário do Teorema do Valor Médio). Logo $G=F+C$.
+\end{definicao}
+
+\begin{armadilha}[{A palavra ``intervalo'' não é enfeite}]
+Para $f(x)=1/x$, o domínio $(-\infty,0)\cup(0,\infty)$ \emph{não} é um intervalo. A primitiva mais geral é
+\[
+F(x)=\begin{cases}\ln|x|+C_1, & x>0\\ \ln|x|+C_2, & x<0\end{cases}
+\]
+com constantes que podem ser \emph{diferentes} em cada ramo. Escrever ``$\ln|x|+C$'' é a abreviação usual, válida em cada intervalo separadamente. Questão V/F típica: ``se $F'=G'$ então $F-G$ é constante'' --- só é verdadeiro em um intervalo.
+\end{armadilha}
+
+\begin{geo}
+A família $F(x)+C$ é um feixe de curvas obtidas por translação vertical: todas têm, em cada $x$, retas tangentes \emph{paralelas} (mesma inclinação $f(x)$). Uma condição inicial ($F(x_0)=y_0$) escolhe \emph{uma} curva do feixe; por isso ``achar $f$ dado $f'$ e $f(0)$'' tem resposta única, e ``achar $f$ dado $f''$'' precisa de \emph{duas} condições (duas constantes).
+\end{geo}
+
+\subsection{Notação: integral indefinida $\neq$ integral definida}
+
+\[
+\int f(x)\dx = F(x)+C \quad\text{significa}\quad F'(x)=f(x).
+\]
+\begin{itemize}[leftmargin=1.4em, itemsep=2pt]
+\item $\displaystyle\int f(x)\dx$ é uma \textbf{família de funções} (uma para cada $C$).
+\item $\displaystyle\int_a^b f(x)\dx$ é um \textbf{número} (limite de somas de Riemann, Parte 3).
+\item A ponte entre os dois é o TFC2 (Parte 4): $\displaystyle\int_a^b f(x)\dx = \Big[\int f(x)\dx\Big]_a^b = F(b)-F(a)$ --- e o $C$ cancela.
+\end{itemize}
+
+\subsection{Método: cinco passos para qualquer integral da P1}
+
+\begin{metodo}[{Procedimento}]
+\begin{enumerate}[leftmargin=1.6em, itemsep=2pt]
+\item \textbf{Classificar.} Está na tabela direto? Precisa de preparação algébrica? Há função composta acompanhada da derivada ``de dentro'' (substituição, Parte 5)?
+\item \textbf{Preparar.} Expandir produtos; dividir o numerador termo a termo pelo denominador; raízes $\to$ expoentes fracionários; $1/x^k\to x^{-k}$; identidades trigonométricas.
+\item \textbf{Integrar termo a termo} (linearidade: $\int (cf+g) = c\int f + \int g$), usando a tabela.
+\item \textbf{$+\,C$} (indefinida) ou \textbf{avaliar} $F(b)-F(a)$ (definida).
+\item \textbf{Verificar derivando.} O resultado derivado tem que dar o integrando original.
+\end{enumerate}
+\end{metodo}
+
+\begin{definicao}[{Catálogo de preparação algébrica --- o que mais aparece em 4.9/5.3/5.4}]
+\small
+\begin{tabular}{@{}ll@{\qquad}ll@{}}
+\toprule
+\textbf{Está assim} & \textbf{Reescreva} & \textbf{Está assim} & \textbf{Reescreva}\\
+\midrule
+$(x+1)(x-3)$ & $x^2-2x-3$ & $\tg^2 x$ & $\sec^2 x - 1$\\[2pt]
+$\dfrac{2+x^2}{\sqrt{x}}$ & $2x^{-1/2}+x^{3/2}$ & $\sen^2 x$ & $\dfrac{1-\cos 2x}{2}$\\[6pt]
+$\dfrac{x^3-2x}{x^2}$ & $x-2x^{-1}$ & $\cos^2 x$ & $\dfrac{1+\cos 2x}{2}$\\[6pt]
+$\sqrt[3]{x^2}$ & $x^{2/3}$ & $\sen x\cos x$ & $\tfrac12\sen 2x$\\[2pt]
+$\dfrac{1}{x^3}$ & $x^{-3}$ & $\dfrac{\sen x}{\cos^2 x}$ & $\sec x\,\tg x$\\[6pt]
+$\dfrac{(3x+1)^2}{x^3}$ & $9x^{-1}+6x^{-2}+x^{-3}$ & $\dfrac{1+\cos^2\theta}{\cos^2\theta}$ & $\sec^2\theta+1$\\
+\bottomrule
+\end{tabular}
+\end{definicao}
+
+\subsection{Exemplos resolvidos}
+
+\begin{exemplo}[{Exemplo 2.1 --- quociente com raiz (padrão 5.3.37 / 5.4)}]
+Calcule $\displaystyle\int \frac{2+x^2}{\sqrt{x}}\dx$.
+
+\textbf{Classificação:} não é composta com derivada de dentro; é tabela direta \emph{depois} de dividir termo a termo.
+
+\textbf{Preparação:} $\dfrac{2+x^2}{\sqrt{x}} = \dfrac{2}{x^{1/2}} + \dfrac{x^2}{x^{1/2}} = 2x^{-1/2} + x^{2-1/2} = 2x^{-1/2}+x^{3/2}$.
+
+\textbf{Integração:}
+\[
+\int \big(2x^{-1/2}+x^{3/2}\big)\dx
+= 2\cdot\frac{x^{1/2}}{1/2} + \frac{x^{5/2}}{5/2} + C
+= 4x^{1/2} + \frac{2}{5}x^{5/2} + C
+= 4\sqrt{x} + \frac{2}{5}x^{5/2} + C .
+\]
+\textbf{Verificação:} $\dfrac{d}{dx}\big[4x^{1/2}\big] = 4\cdot\tfrac12 x^{-1/2} = \dfrac{2}{\sqrt{x}}$ \ok\quad e\quad $\dfrac{d}{dx}\Big[\tfrac25 x^{5/2}\Big] = \tfrac25\cdot\tfrac52 x^{3/2} = x^{3/2} = \dfrac{x^2}{\sqrt x}$ \ok
+\end{exemplo}
+
+\begin{exemplo}[{Exemplo 2.2 --- identidade trigonométrica (dois caminhos, mesma resposta)}]
+Calcule $\displaystyle\int \frac{\sen x}{\cos^2 x}\dx$.
+
+\textbf{Caminho 1 (tabela após identidade):} $\dfrac{\sen x}{\cos^2 x} = \dfrac{1}{\cos x}\cdot\dfrac{\sen x}{\cos x} = \sec x\,\tg x$, e $\int \sec x\tg x\dx = \sec x + C$.
+
+\textbf{Caminho 2 (substituição, Parte 5):} $u=\cos x$, $du=-\sen x\dx$:
+$\displaystyle\int \frac{\sen x}{\cos^2 x}\dx = \int \frac{-du}{u^2} = -\int u^{-2}\du = -\frac{u^{-1}}{-1}+C = \frac1u + C = \frac{1}{\cos x}+C = \sec x + C$.
+
+\textbf{Verificação:} $(\sec x)' = \sec x\tg x = \dfrac{1}{\cos x}\cdot\dfrac{\sen x}{\cos x} = \dfrac{\sen x}{\cos^2 x}$ \ok. Dois métodos, um resultado: quando o gabarito vier em forma diferente da sua, derive as duas --- se ambas dão o integrando, diferem no máximo por uma constante.
+\end{exemplo}
+
+\begin{exemplo}[{Exemplo 2.3 --- verificar por derivação (5.4.1--4)}]
+Verifique que $\displaystyle\int \tg^2 x\dx = \tg x - x + C$.
+
+Derivando o lado direito: $(\tg x - x + C)' = \sec^2 x - 1$. Pela identidade $1+\tg^2 x=\sec^2 x$, isso é $\tg^2 x$ \ok.
+
+\smallskip
+É assim que se \emph{obtém} a fórmula também: $\int \tg^2 x\dx = \int(\sec^2 x - 1)\dx = \tg x - x + C$. Nessas questões, \textbf{não integre}: derive a resposta dada e compare com o integrando --- é mais rápido e é o que o enunciado pede.
+\end{exemplo}
+
+\begin{exemplo}[{Exemplo 2.4 --- ``encontre $f$'' com $f''$ e duas condições (4.9.29--54)}]
+$f''(x)=12x^2+6x-4$, \quad $f(0)=4$, \quad $f(1)=1$.
+
+\textbf{Passo 1 --- integrar uma vez:}
+\[
+f'(x)=\int(12x^2+6x-4)\dx = 12\cdot\frac{x^3}{3}+6\cdot\frac{x^2}{2}-4x + C = 4x^3+3x^2-4x+C .
+\]
+\textbf{Passo 2 --- integrar de novo:}
+\[
+f(x)=\int(4x^3+3x^2-4x+C)\dx = x^4 + x^3 - 2x^2 + Cx + D .
+\]
+\textbf{Passo 3 --- usar as condições} (as duas são sobre $f$; nenhuma sobre $f'$, então $C$ e $D$ saem de um sistema):
+\[
+f(0)=D=4 ,\qquad f(1)=1+1-2+C+4 = C+4 = 1 \;\Rightarrow\; C=-3 .
+\]
+\textbf{Resposta:} $f(x)=x^4+x^3-2x^2-3x+4$.
+
+\textbf{Verificação:} $f'(x)=4x^3+3x^2-4x-3$, $f''(x)=12x^2+6x-4$ \ok; $f(0)=4$ \ok; $f(1)=1+1-2-3+4=1$ \ok.
+\end{exemplo}
+
+\begin{exemplo}[{Exemplo 2.5 --- cinemática com duas integrações (4.9.65--70)}]
+$a(t)=3\cos t-2\sen t$, \quad $s(0)=0$, \quad $v(0)=4$.
+
+\textbf{Classificação:} tabela direta (senos e cossenos), duas integrações, duas condições.
+
+\textbf{Velocidade:} $v(t)=\displaystyle\int(3\cos t-2\sen t)\dt = 3\sen t - 2(-\cos t) + C_1 = 3\sen t + 2\cos t + C_1$.
+
+$v(0)=3\cdot 0+2\cdot 1 + C_1 = 4 \Rightarrow C_1 = 2$. Logo $v(t)=3\sen t+2\cos t+2$.
+
+\textbf{Posição:} $s(t)=\displaystyle\int(3\sen t+2\cos t+2)\dt = -3\cos t + 2\sen t + 2t + C_2$.
+
+$s(0) = -3\cdot 1 + 0 + 0 + C_2 = 0 \Rightarrow C_2 = 3$. Logo $\boxed{s(t)=-3\cos t+2\sen t+2t+3}$.
+
+\textbf{Verificação:} $s'(t)=3\sen t+2\cos t+2 = v(t)$ \ok; $v'(t)=3\cos t-2\sen t=a(t)$ \ok.
+
+\textbf{Leitura:} o termo $2t$ é uma deriva constante (velocidade média $2$ m/s) e $-3\cos t+2\sen t$ é uma oscilação de amplitude $\sqrt{3^2+2^2}=\sqrt{13}$ em torno dela.
+\end{exemplo}
+
+\begin{armadilha}[{Onde se perde ponto em 4.9}]
+\begin{itemize}[leftmargin=1.4em, itemsep=1pt]
+\item Esquecer $+C$ na primeira integração e depois ``não ter constante suficiente'' para a segunda condição.
+\item $\int\sen t\dt = -\cos t$ (menos!), $\int\cos t\dt=\sen t$. Avaliar $\cos 0 = 1$, $\sen 0=0$ --- em \textbf{radianos}, sempre.
+\item Descartar uma alternativa em forma fatorada sem derivá-la: $\frac{(x-2)^3}{3}$ e $\frac{x^3}{3}-2x^2+4x$ são \emph{ambas} primitivas de $x^2-4x+4$ (diferem por $-\frac83$). Derive antes de eliminar.
+\item ``Primitiva'' é \emph{uma} função; ``integral indefinida'' é a família toda. Se pedem \emph{a} primitiva com $F(0)=1$, a resposta não pode ter $C$ solto.
+\end{itemize}
+\end{armadilha}
+
+\begin{exercicios}[{Exercícios similares --- Parte 2}]
+\begin{enumerate}[leftmargin=1.6em, itemsep=2pt, label=\textbf{2.\arabic*}]
+\item $\displaystyle\int \frac{x^3-2x}{x^2}\dx$
+\item $\displaystyle\int (u+2)(u-3)\du$
+\item $\displaystyle\int \frac{1+\cos^2\theta}{\cos^2\theta}\,d\theta$
+\item Encontre $f$: $f''(x)=2+12x-12x^2$, $f(0)=4$, $f'(0)=12$.
+\item Encontre $f$ tal que $f'(x)=2x+1$ e a reta tangente ao gráfico de $f$ no ponto de abscissa $x=1$ passa pela origem.
+\item Uma partícula tem $a(t)=10\sen t+3\cos t$, $s(0)=0$ e $s(2\pi)=12$. Encontre $s(t)$. (Duas condições sobre $s$: monte o sistema.)
+\end{enumerate}
+\end{exercicios}
